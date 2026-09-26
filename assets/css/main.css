@@ -249,8 +249,8 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 760px) { .manifest li { grid-template-columns: 1fr; gap: 8px; } }
 
 /* Cijfers --------------------------------------------------------------- */
-.feiten { font: 600 clamp(1.7rem, 3.8vw, 3.3rem)/1.25 var(--display); letter-spacing: -.025em; color: var(--nacht); max-width: 24ch; margin: 0; text-wrap: pretty; }
-.feiten strong { font-weight: 800; white-space: nowrap; background: linear-gradient(transparent 64%, rgb(255 255 255 / .38) 64% 92%, transparent 92%); }
+.feiten { font: 600 clamp(1.7rem, 3.8vw, 3.3rem)/1.25 var(--display); letter-spacing: -.025em; color: var(--wit); max-width: 24ch; margin: 0; text-wrap: pretty; }
+.feiten strong { font-weight: 800; white-space: nowrap; color: var(--mint); }
 .cijfer__getal { font: 800 clamp(2.8rem, 5.6vw, 5.2rem)/.9 var(--display); letter-spacing: -.04em; color: var(--nacht); display: block; margin-bottom: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 /* Kop met actie ernaast */
