@@ -198,12 +198,13 @@ body.menu-open { overflow: hidden; }
 .pkop__vorm img { width: 100%; height: 100%; object-fit: cover; }
 .pkop--groen { background: var(--groen); color: var(--nacht); }
 .pkop--groen h1, .pkop--groen .lead { color: var(--nacht); }
-.pkop--groen .kruimel a, .pkop--groen .kruimel { color: var(--nacht); }
+.pkop--groen .kruimel ol, .pkop--groen .kruimel a { color: var(--nacht); }
+.pkop--groen h1 .groen-tekst { color: var(--wit); }
 .pkop--groen .pkop__vorm { background: var(--nacht); }
 .pkop--foto h1, .pkop--foto .lead { max-width: min(100%, 14ch); }
 .pkop--foto .lead { max-width: 28em; }
 @media (min-width: 901px) { .pkop--foto .pkop__in > * { max-width: 58%; } }
-@media (max-width: 900px) { .pkop__vorm { opacity: .25; right: -30%; width: 80vw; } .pkop--foto .pkop__vorm { position: relative; opacity: 1; right: auto; top: auto; transform: none; width: 70%; margin: -24px 0 32px auto; } }
+@media (max-width: 900px) { .pkop:not(.pkop--foto) .pkop__vorm { display: none; } .pkop--foto .pkop__vorm { position: relative; opacity: 1; right: auto; top: auto; transform: none; width: 70%; margin: -24px 0 32px auto; } }
 .kruimel ol { display: flex; flex-wrap: wrap; list-style: none; margin: 0 0 28px; padding: 0; font-size: .95rem; color: #a9bccd; }
 .kruimel li + li::before { content: "→"; margin: 0 .55em; }
 .kruimel a { color: var(--mint); }
