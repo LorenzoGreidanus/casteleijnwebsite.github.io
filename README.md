@@ -39,10 +39,10 @@ Schrijf zoals de rest van de site: "je", korte zinnen, concreet.
 ```bash
 gem install jekyll
 jekyll serve
-# open http://localhost:4000/casteleijnwebsite.github.io/
+# open http://localhost:4000/
 ```
 
-Komt de site op een eigen domein (bijv. `www.casteleijncollege.nl`)? Zet dan `baseurl: ""` en de juiste `url` in `_config.yml` en voeg een `CNAME`-bestand toe.
+De site staat op **https://casteleijn.meneergreidanus.nl** (bestand `CNAME`, plus `url` in `_config.yml`). Naar een ander domein, bijvoorbeeld `www.casteleijncollege.nl`? Pas dan `CNAME` en `url` aan, zet het domein in GitHub bij Settings → Pages, en maak bij de domeinprovider een CNAME-record naar `lorenzogreidanus.github.io`.
 
 ## Let op
 

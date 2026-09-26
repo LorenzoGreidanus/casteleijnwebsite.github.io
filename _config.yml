@@ -3,8 +3,8 @@ description: >-
   Voortgezet speciaal onderwijs in Emmeloord. Vmbo-bb, vmbo-kb, vmbo-tl en havo-onderbouw
   in kleine klassen, met een vaste mentor en een voorspelbare schooldag.
 lang: nl
-url: "https://lorenzogreidanus.github.io"
-baseurl: "/casteleijnwebsite.github.io"
+url: "https://casteleijn.meneergreidanus.nl"
+baseurl: ""
 permalink: /verhalen/:year/:month/:title/
 timezone: Europe/Amsterdam
 markdown: kramdown
