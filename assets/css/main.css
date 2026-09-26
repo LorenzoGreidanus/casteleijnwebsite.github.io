@@ -1,6 +1,6 @@
 /* ==========================================================================
    Casteleijn College: ontwerp 2026
-   Gedurfd, typografisch en rustig tegelijk. Zie /merkboek/ voor de uitleg.
+   Gedurfd, typografisch en rustig tegelijk.
    ========================================================================== */
 
 :root {
@@ -63,7 +63,6 @@ h4 { font-size: 1.2rem; letter-spacing: -.01em; line-height: 1.2; }
 .meer { margin: 20px 0 0; }
 .klein { font-size: .95rem; color: var(--grijs); }
 .datumregel { font-weight: 700; color: var(--groen-d); margin-bottom: 1.2rem; font-variant-numeric: tabular-nums; }
-.hoofdstuknr { color: var(--groen-d); }
 
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--g); }
 .wrap--smal { max-width: 860px; }
@@ -505,30 +504,6 @@ body.menu-open { overflow: hidden; }
 .midden { text-align: center; }
 .pt-0 { padding-top: 0; }
 
-/* Merkboek --------------------------------------------------------------- */
-.doedont { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
-.doedont .kaart { border-top: 8px solid var(--groen); }
-.doedont .kaart--niet { border-top-color: #c2410c; }
-.doedont h3 { display: flex; gap: 10px; align-items: center; }
-.fontvoorbeeld { font: 800 clamp(2.2rem, 5vw, 3.8rem)/1 var(--display); letter-spacing: -.035em; color: var(--nacht); margin: 0 0 16px; }
-.waarde__woord { font: 800 clamp(2.4rem, 5vw, 3.6rem)/1 var(--display); letter-spacing: -.04em; color: var(--nacht); margin: 0 0 8px; }
-.schuif { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 12px; align-items: center; font-weight: 700; margin-bottom: 14px; font-size: clamp(.85rem, 3.4vw, 1.05rem); }
-.schuif > :first-child { text-align: right; }
-.schuif__balk { width: min(260px, 28vw); height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--mint-l), var(--groen)); position: relative; }
-.schuif__balk span { position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%; background: var(--wit); border: 5px solid var(--nacht); transform: translate(-50%, -50%); }
-.voorna { display: grid; grid-template-columns: 1fr 1fr; border-radius: var(--r); overflow: hidden; margin-bottom: 16px; background: var(--wit); border: 1px solid var(--lijn); }
-.voorna > div { padding: 22px 24px; }
-.voorna__voor { background: #fbefe8; }
-.voorna__label { display: block; font-weight: 700; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; color: var(--grijs); }
-.voorna__voor .voorna__label { color: #9a3412; }
-.voorna__na .voorna__label { color: var(--groen-d); }
-.voorna__na p { font-weight: 700; color: var(--nacht); }
-.voorna p { margin: 0; }
-@media (max-width: 640px) { .voorna { grid-template-columns: 1fr; } }
-.swatches { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
-.swatch { border-radius: var(--r); overflow: hidden; background: var(--wit); border: 1px solid var(--lijn); font-size: .92rem; }
-.swatch__kleur { height: 130px; display: flex; align-items: flex-end; padding: 12px 14px; font: 800 1.15rem var(--display); letter-spacing: -.01em; }
-.swatch__info { padding: 12px 14px; line-height: 1.45; }
 .lw-nav a { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
 
 .hero .groen-tekst, .pkop:not(.pkop--groen) .groen-tekst { color: var(--mint); }

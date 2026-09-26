@@ -2,14 +2,13 @@
 
 Nieuwe website voor het Casteleijn College (vso, Emmeloord), gebouwd met [Jekyll](https://jekyllrb.com/). GitHub Pages bouwt en publiceert de site automatisch.
 
-- **Merkboek & tone of voice:** `/merkboek/` (bestand `merkboek.html`)
 - **Bron van de inhoud:** de oude site op eduvier.nl/casteleijncollege (september 2026)
 
 ## Structuur
 
 | Pagina | Bestand | Inhoud |
 |---|---|---|
-| Home | `index.html` | Belofte, wegwijzer per doelgroep, Rust/Ruimte/Richting, cijfers, leerwegen, stage-route, film, aanmelden, agenda, vragen, verhalen |
+| Home | `index.html` | Belofte, wegwijzer per doelgroep, Rust/Ruimte/Richting, de school in het kort, leerwegen, stage-route, film, aanmelden, agenda, vragen, verhalen |
 | De school | `school.html` | Wie we zijn, voor wie, aanpak, samenwerking, medezeggenschap |
 | Leerwegen | `leerwegen.html` + `_leerwegen/*.md` | Overzicht, vergelijking en een eigen pagina per leerweg |
 | Stage & toekomst | `toekomst.html` | Meer dan leren, stageroute, schoolcertificaten, ESF |
@@ -18,7 +17,6 @@ Nieuwe website voor het Casteleijn College (vso, Emmeloord), gebouwd met [Jekyll
 | Aanmelden | `aanmelden.html` | 3 stappen, TLV, rondleiding aanvragen, informatieavond |
 | Contact | `contact.html` | Telefoon, mail, adres, kaart |
 | Veelgestelde vragen | `vragen.html` | Uit `_data/vragen.yml` |
-| Merkboek | `merkboek.html` | Analyse, merkkern, tone of voice, schrijfwijzer, huisstijl |
 
 ## Zelf aanpassen (zonder programmeren)
 
@@ -33,7 +31,7 @@ Alles kan direct in GitHub via het potloodje bij een bestand.
 - **Menu:** `_data/navigatie.yml`.
 - **Vakanties en vrije dagen:** tabel in `ouders.html` en `_data/agenda.yml`.
 
-Schrijf altijd volgens het merkboek: "je", korte zinnen, concreet.
+Schrijf zoals de rest van de site: "je", korte zinnen, concreet.
 
 ## Lokaal bekijken
 
