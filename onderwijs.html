@@ -1,0 +1,108 @@
+---
+layout: default
+title: Onderwijs
+permalink: /onderwijs/
+description: Op het Casteleijn College volg je vmbo-bb, vmbo-kb, vmbo-tl of havo (onderbouw). Met veel aandacht voor sociale vaardigheden, leren leren en stage.
+---
+{% include paginakop.html kop="Leren op jouw niveau, in jouw tempo" intro="Je volgt bij ons de leerweg vmbo-bb, vmbo-kb, vmbo-tl of havo (onderbouw). Je krijgt theorie- én praktijkvakken. In vmbo-tl en havo ligt de nadruk op theorie, in de andere leerwegen leer je vooral in de praktijk." %}
+
+<nav class="opdeze" aria-label="Op deze pagina">
+  <div class="wrap"><ul>
+    {%- for lw in site.data.leerwegen %}<li><a href="#{{ lw.id }}">{{ lw.kort }}</a></li>{% endfor %}
+    <li><a href="#meer-dan-leren">Meer dan leren</a></li>
+    <li><a href="#stage">Stage</a></li>
+  </ul></div>
+</nav>
+
+<section class="sectie sectie--zand">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Vergelijk</p>
+      <h2>Welke leerweg past bij jou?</h2>
+    </div>
+    <div class="tabel-wrap">
+      <table class="tabel">
+        <caption class="visueel-verborgen">Overzicht van de leerwegen</caption>
+        <thead><tr><th scope="col">Leerweg</th><th scope="col">Nadruk</th><th scope="col">Je gaat daarna naar</th></tr></thead>
+        <tbody>
+          {%- for lw in site.data.leerwegen %}
+          <tr><th scope="row"><a href="#{{ lw.id }}">{{ lw.kort }}</a></th><td>{{ lw.focus }}</td><td>{{ lw.na | join: ' of ' }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sectie" aria-label="Leerwegen">
+  <div class="wrap">
+    {%- for lw in site.data.leerwegen %}
+    <article class="lw-detail" id="{{ lw.id }}">
+      <div class="lw-detail__zij">
+        <span class="leerweg__tag">{{ lw.focus }}</span>
+        <h2>{{ lw.naam }}</h2>
+        <div class="balk" role="img" aria-label="Praktijk: {{ lw.praktijk }} van 5">{% for i in (1..5) %}<span{% if i <= lw.praktijk %} class="aan"{% endif %}></span>{% endfor %}</div>
+        <div class="balk-legenda" aria-hidden="true"><span>theorie</span><span>praktijk</span></div>
+      </div>
+      <div class="tekst">
+        {%- for alinea in lw.tekst %}<p>{{ alinea }}</p>{% endfor %}
+        <p><strong>Daarna:</strong></p>
+        <ul class="chips">{% for n in lw.na %}<li>{{ n }}</li>{% endfor %}</ul>
+      </div>
+    </article>
+    {%- endfor %}
+    <div class="kader kader--zon">
+      <p><strong>Voor elke leerweg geldt:</strong> samen bepalen we wat mogelijk en haalbaar is, en welke ondersteuning je nodig hebt. Denk aan extra tijd, extra of herhaalde uitleg en werken op je eigen tempo. Vragen over een leerweg? <a href="{{ '/contact/' | relative_url }}">Neem gerust contact op</a>, we helpen je graag.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie--zand" id="meer-dan-leren">
+  <div class="wrap split">
+    <div>
+      <p class="bovenkop">Meer dan leren</p>
+      <h2>Sociale vaardigheden en leren leren</h2>
+      <p>Naast de theorie- en praktijkvakken besteden we veel aandacht aan ‘leren leren’, aan je voorbereiden op de toekomst en aan sociale vaardigheden. Dat doen we in de gewone lessen, en in speciale lessen zoals <strong>Leefstijl</strong>.</p>
+      <p>Het doel: dat je klaar bent voor een vervolgopleiding of een baan.</p>
+    </div>
+    <div class="split__beeld"><div class="foto"><img src="{{ '/assets/img/slider-tekenen.jpg' | relative_url }}" alt="Leerling leest een opdracht door aan een tafel vol tekenwerk" loading="lazy" width="1100" height="460"></div></div>
+  </div>
+</section>
+
+<section class="sectie" id="stage">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Stage</p>
+      <h2>Stap voor stap naar werk of vervolgopleiding</h2>
+      <p class="lead">Je loopt stage binnen én buiten school. Zo ontdek je wat je leuk vindt en waar je goed in bent.</p>
+    </div>
+    <ol class="stappen">
+      <li>
+        <h3>Praktische Sector Oriëntatie</h3>
+        <p>In een groepje van ongeveer 4 leerlingen bereid je je voor op stage of werk. Samen voer je zelfstandig een opdracht uit buiten school. Bijvoorbeeld op een camping (sector Groen) of in een supermarkt (sector Handel en Verkoop).</p>
+      </li>
+      <li>
+        <h3>Interne stage</h3>
+        <p>In de bovenbouw loop je stage binnen school. Je kunt schoolcertificaten halen voor:</p>
+        <ul class="chips">
+          <li>Fietstechniek</li><li>Groentechniek gemechaniseerd</li><li>Autowasservice</li><li>Catering (broodjesservice)</li><li>Wasverzorging</li><li>Interieurverzorging</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Externe stage</h3>
+        <p>Ben je 15 en heb je de vaardigheden die nodig zijn? Dan loop je stage bij een bedrijf of organisatie. Ga je daarna naar een vervolgopleiding, dan is dit een oriënterende stage. Ga je werken, dan is het een beroepsgerichte jaarstage.</p>
+        <p class="mb-0">Samen met je leraar en de stagecoördinator bereid je je stage goed voor. Je houdt een stageboekje bij, en de stagecoördinator komt regelmatig langs op je stageplek.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sectie pt-0">
+  <div class="wrap">
+    <div class="cta">
+      {% include polder.html %}
+      <div><h2>Zelf de lokalen zien?</h2><p>Tijdens een oriëntatiebezoek krijg je een rondleiding en vertellen we je alles over de school.</p></div>
+      <div class="knoppen"><a class="knop knop--licht" href="{{ '/aanmelden/#orientatie' | relative_url }}">Plan een bezoek</a></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+title: Casteleijn College
+description: >-
+  Voortgezet speciaal onderwijs in Emmeloord op vmbo-bb, vmbo-kb, vmbo-tl en havo-niveau (onderbouw).
+  Kleine klassen, een vaste mentor en een voorspelbare schooldag.
+lang: nl
+url: "https://lorenzogreidanus.github.io"
+baseurl: "/casteleijnwebsite.github.io"
+permalink: /nieuws/:year/:month/:title/
+timezone: Europe/Amsterdam
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: bericht }

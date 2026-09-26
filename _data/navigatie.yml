@@ -1,0 +1,28 @@
+- titel: Onze school
+  url: /onze-school/
+  sub:
+    - { titel: Wie we zijn, url: /onze-school/#wie-we-zijn }
+    - { titel: Voor wie?, url: /onze-school/#voor-wie }
+    - { titel: Onze aanpak, url: /onze-school/#aanpak }
+    - { titel: Samen met…, url: /onze-school/#samen-met }
+    - { titel: Medezeggenschap, url: /onze-school/#medezeggenschap }
+- titel: Onderwijs
+  url: /onderwijs/
+  sub:
+    - { titel: Vmbo-bb, url: /onderwijs/#vmbo-bb }
+    - { titel: Vmbo-kb, url: /onderwijs/#vmbo-kb }
+    - { titel: Vmbo-tl, url: /onderwijs/#vmbo-tl }
+    - { titel: Havo (onderbouw), url: /onderwijs/#havo }
+    - { titel: Meer dan leren, url: /onderwijs/#meer-dan-leren }
+    - { titel: Stage, url: /onderwijs/#stage }
+- titel: In beeld
+  url: /in-beeld/
+- titel: Praktisch
+  url: /praktisch/
+  sub:
+    - { titel: Schooltijden, url: /praktisch/#schooltijden }
+    - { titel: Vakanties & vrije dagen, url: /praktisch/#vakanties }
+    - { titel: Documenten & schoolgids, url: /praktisch/#documenten }
+    - { titel: ESF-subsidie, url: /praktisch/#esf }
+- titel: Contact
+  url: /contact/

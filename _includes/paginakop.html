@@ -1,0 +1,8 @@
+<section class="paginakop{% if include.foto %} paginakop--foto{% endif %}">
+  {% include polder.html class="paginakop__vorm" %}
+  <div class="wrap paginakop__in">
+    <nav class="kruimel" aria-label="Kruimelpad"><ol><li><a href="{{ '/' | relative_url }}">Home</a></li><li aria-current="page">{{ page.title }}</li></ol></nav>
+    <h1>{{ include.kop | default: page.title }}</h1>
+    {% if include.intro %}<p class="lead">{{ include.intro }}</p>{% endif %}
+  </div>
+</section>

@@ -1,0 +1,9 @@
+{%- comment -%} Privacyvriendelijke video: YouTube laadt pas na een klik. {%- endcomment -%}
+<div class="video" data-video="{{ include.id }}">
+  <img src="{{ include.poster | relative_url }}" alt="" loading="lazy">
+  <button class="video__knop" type="button">
+    <span class="video__play"><svg aria-hidden="true" class="i"><use href="#i-play"/></svg></span>
+    <span>{{ include.titel }}</span>
+  </button>
+  <p class="video__info">De video wordt afgespeeld via YouTube (zonder tracking-cookies).</p>
+</div>

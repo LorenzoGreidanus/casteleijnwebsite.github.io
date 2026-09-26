@@ -1,0 +1,33 @@
+---
+layout: default
+title: Contact
+permalink: /contact/
+description: Contactgegevens, adres en route van het Casteleijn College, Hoefbladstraat 1a in Emmeloord.
+---
+{%- assign school = site.data.school -%}
+{% include paginakop.html kop="Contact" intro="Heb je een vraag? Bel of mail ons gerust. We helpen je graag verder." %}
+
+<section class="sectie">
+  <div class="wrap split" style="align-items:stretch">
+    <div>
+      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-tel"/></svg></span><div><strong>Bellen</strong><br><a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></div></div>
+      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-mail"/></svg></span><div><strong>Mailen</strong><br><a href="mailto:{{ school.email }}">{{ school.email }}</a></div></div>
+      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-plek"/></svg></span><div><strong>Bezoekadres</strong><br>{{ school.bezoekadres }}<br>{{ school.postcode_plaats }}<br><a href="https://www.google.com/maps/dir/?api=1&destination=Hoefbladstraat+1A+8302+VM+Emmeloord">Routebeschrijving</a></div></div>
+      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></span><div><strong>Postadres</strong><br>{{ school.postadres }}<br>{{ school.postadres_plaats }}<br><small style="color:var(--grijs)">Post gaat via het centrale adres van Eduvier in Lelystad.</small></div></div>
+      <div class="kader"><p><strong>Vragen over je kind?</strong> De mentor is het vaste aanspreekpunt voor ouders en leerlingen.</p></div>
+    </div>
+    <div class="kaartje">
+      <iframe title="Kaart: Casteleijn College, Hoefbladstraat 1a Emmeloord" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hoefbladstraat+1A,+8302+VM+Emmeloord&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie--zand">
+  <div class="wrap">
+    <div class="raster raster--3">
+      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ '/aanmelden/#orientatie' | relative_url }}"><h3>Oriëntatiebezoek</h3><p>Rondleiding van maximaal 30 minuten.</p><span class="pijllink">Aanvragen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ '/praktisch/#vakanties' | relative_url }}"><h3>Vakanties & vrije dagen</h3><p>Het rooster voor {{ school.schooljaar }}.</p><span class="pijllink">Bekijken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ school.werkenbij }}"><h3>Werken bij</h3><p>Vacatures bij onze school en Eduvier.</p><span class="pijllink">Naar vacatures <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+    </div>
+  </div>
+</section>

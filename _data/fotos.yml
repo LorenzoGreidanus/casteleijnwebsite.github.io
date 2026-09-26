@@ -1,0 +1,17 @@
+# Fotogalerij op /in-beeld/. Nieuwe foto? Zet hem in assets/img/ en voeg een blok toe.
+# Let op: gebruik alleen foto's waarvoor toestemming is gegeven.
+- bestand: /assets/img/foto-keuken.jpg
+  alt: Leerlingen en een docent aan het werk in de praktijkkeuken
+  onderschrift: Koken en bakken in de praktijkkeuken
+- bestand: /assets/img/foto-boren.jpg
+  alt: Leerling met gehoorbescherming en veiligheidsbril aan het werk bij een kolomboormachine
+  onderschrift: Veilig werken in de werkplaats
+- bestand: /assets/img/foto-tekenen.jpg
+  alt: Leerling werkt geconcentreerd aan een tekening
+  onderschrift: Geconcentreerd aan het werk in het teken­lokaal
+- bestand: /assets/img/slider-keuken.jpg
+  alt: Handen van leerlingen die ingrediënten afwegen op een aanrecht
+  onderschrift: Afwegen, mengen, samenwerken
+- bestand: /assets/img/slider-tekenen.jpg
+  alt: Leerling leest een opdracht door aan een tafel vol tekenwerk
+  onderschrift: Van opdracht naar ontwerp

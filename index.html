@@ -1,0 +1,168 @@
+---
+layout: default
+title: Home
+description: Het Casteleijn College in Emmeloord is een school voor voortgezet speciaal onderwijs (vso) op vmbo-bb, vmbo-kb, vmbo-tl en havo-niveau. Kleine klassen, een vaste mentor en een voorspelbare schooldag.
+---
+<section class="hero">
+  <div class="wrap hero__in">
+    <div>
+      <p class="bovenkop">Voortgezet speciaal onderwijs · Emmeloord</p>
+      <h1>Een vaste plek.<br><em>Jouw eigen weg.</em></h1>
+      <p class="lead">Op het Casteleijn College leer je in een kleine klas, met een vaste mentor en een dag die je van tevoren kent. Zo is er rust in je hoofd en ruimte om te laten zien wat je kunt: op vmbo-bb, vmbo-kb, vmbo-tl of havo-niveau.</p>
+      <div class="knoppen">
+        <a class="knop knop--accent" href="{{ '/aanmelden/#orientatie' | relative_url }}">Kom kennismaken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+        <a class="knop knop--rand" href="{{ '/onderwijs/' | relative_url }}">Bekijk de leerwegen</a>
+      </div>
+      <ul class="hero__feiten">
+        <li><svg aria-hidden="true" class="i"><use href="#i-check"/></svg>12 à 13 leerlingen per klas</li>
+        <li><svg aria-hidden="true" class="i"><use href="#i-check"/></svg>Vaste mentor</li>
+        <li><svg aria-hidden="true" class="i"><use href="#i-check"/></svg>Elke dag 08.30–14.15</li>
+      </ul>
+    </div>
+    <div class="hero__beeld">
+      {% include polder.html %}
+      <img src="{{ '/assets/img/foto-tekenen.jpg' | relative_url }}" alt="Leerling werkt geconcentreerd aan een tekening in het praktijklokaal" width="600" height="330">
+      <div class="hero__label"><div><strong>4</strong>leerwegen, van praktijk tot havo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Voor wie?</p>
+      <h2>Voor jongeren die net wat meer nodig hebben om goed te kunnen leren</h2>
+      <p class="lead">Bijvoorbeeld omdat je autisme hebt en je je op een reguliere school niet op je plek voelt. Of omdat je door je gedrag op een reguliere school niet aan leren toekomt. Bij ons krijg je extra ondersteuning en begeleiding die past bij jou.</p>
+    </div>
+    <div class="raster raster--4">
+      <div class="kaart belofte">
+        <div class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg></div>
+        <div class="belofte__getal">12–13</div>
+        <p><strong>leerlingen per klas.</strong> Een kleine groep, zodat er tijd en aandacht is voor iedereen.</p>
+      </div>
+      <div class="kaart belofte">
+        <div class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-mentor"/></svg></div>
+        <div class="belofte__getal">1 <small>vaste mentor</small></div>
+        <p>Je mentor geeft een groot deel van je lessen en is het vaste aanspreekpunt voor jou en je ouders.</p>
+      </div>
+      <div class="kaart belofte">
+        <div class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-plek"/></svg></div>
+        <div class="belofte__getal">1 <small>vaste plek</small></div>
+        <p>Je hebt een eigen plek in de klas. Je werkt klassikaal, alleen of in een groepje.</p>
+      </div>
+      <div class="kaart belofte">
+        <div class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-klok"/></svg></div>
+        <div class="belofte__getal">08.30</div>
+        <p><strong>tot 14.15 uur, elke dag.</strong> Vaste lestijden, dus je weet altijd waar je aan toe bent.</p>
+      </div>
+    </div>
+    <p class="mt-l"><a class="pijllink" href="{{ '/onze-school/' | relative_url }}">Meer over onze school <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+  </div>
+</section>
+
+<section class="sectie sectie--zand">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Onderwijs</p>
+      <h2>Vier leerwegen. Samen kiezen we wat bij je past.</h2>
+      <p class="lead">Je krijgt theorie- én praktijkvakken. Hoeveel van elk, hangt af van je leerweg. We kijken samen wat mogelijk en haalbaar is, en welke ondersteuning je daarbij nodig hebt.</p>
+    </div>
+    <div class="raster raster--4">
+      {%- for lw in site.data.leerwegen %}
+      <article class="kaart kaart--link leerweg">
+        <span class="leerweg__tag">{{ lw.focus }}</span>
+        <h3><a href="{{ '/onderwijs/' | relative_url }}#{{ lw.id }}">{{ lw.kort }}</a></h3>
+        <div class="balk" role="img" aria-label="Praktijk: {{ lw.praktijk }} van 5">{% for i in (1..5) %}<span{% if i <= lw.praktijk %} class="aan"{% endif %}></span>{% endfor %}</div>
+        <div class="balk-legenda" aria-hidden="true"><span>theorie</span><span>praktijk</span></div>
+        <p>{{ lw.intro }}</p>
+        <span class="pijllink">Lees meer <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap split">
+    <div>
+      <p class="bovenkop">Meer dan leren</p>
+      <h2>We bereiden je voor op wat hierna komt</h2>
+      <p>Naast de gewone vakken besteden we veel aandacht aan ‘leren leren’, aan sociale vaardigheden en aan je toekomst. Het doel: dat je klaar bent voor een vervolgopleiding of een baan.</p>
+      <ul class="vinklijst">
+        <li>Lessen <strong>Leefstijl</strong> over omgaan met jezelf en anderen</li>
+        <li><strong>Praktische Sector Oriëntatie</strong>: in een groepje aan de slag buiten school, bijvoorbeeld op een camping of in een supermarkt</li>
+        <li>Interne stages met <strong>schoolcertificaten</strong>, zoals fietstechniek en catering</li>
+        <li>Vanaf 15 jaar: <strong>stage bij een echt bedrijf</strong>, met begeleiding van onze stagecoördinator</li>
+      </ul>
+      <a class="pijllink" href="{{ '/onderwijs/#stage' | relative_url }}">Zo werkt stage bij ons <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    </div>
+    <div class="split__beeld">
+      <div class="foto foto--polder"><img src="{{ '/assets/img/foto-boren.jpg' | relative_url }}" alt="Leerling met gehoorbescherming en veiligheidsbril aan het werk bij een kolomboormachine" loading="lazy" width="600" height="330"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie--navy">
+  <div class="wrap split">
+    <div>
+      <p class="bovenkop">In beeld</p>
+      <h2>Kijk alvast even rond</h2>
+      <p>Benieuwd hoe het er bij ons uitziet? In deze korte film zie je de school, de lokalen en de mensen die er elke dag zijn.</p>
+      <p><a href="{{ '/in-beeld/' | relative_url }}">Meer foto's, film en nieuws</a></p>
+    </div>
+    {% include video.html id=site.data.school.video_intro poster="/assets/img/slider-keuken.jpg" titel="Bekijk de introductiefilm" %}
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <p class="bovenkop">Aanmelden</p>
+        <h2>Zo word je leerling, in drie stappen</h2>
+        <ol class="stappen" style="grid-template-columns:1fr">
+          <li><h3>Toelaatbaarheidsverklaring (TLV)</h3><p class="mb-0">Voor het vso heb je een TLV nodig. Die vraag je aan bij het samenwerkingsverband in je woonplaats.</p></li>
+          <li><h3>Kom kennismaken</h3><p class="mb-0">Ouders vragen een oriëntatiebezoek aan. Je krijgt een rondleiding van maximaal 30 minuten.</p></li>
+          <li><h3>Aanmelden</h3><p class="mb-0">Heb je een TLV? Dan meld je je aan. We kijken samen welke locatie het beste bij je past.</p></li>
+        </ol>
+        <p class="mt-l"><a class="knop knop--accent" href="{{ '/aanmelden/' | relative_url }}">Alles over aanmelden</a></p>
+      </div>
+      <div>
+        <p class="bovenkop">Agenda</p>
+        <h2>Binnenkort</h2>
+        {% include agenda.html max=4 %}
+        <p class="mt-l"><a class="pijllink" href="{{ '/praktisch/#vakanties' | relative_url }}">Alle vakanties en vrije dagen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie--zand" id="nieuws">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Nieuws</p>
+      <h2>Wat er speelt</h2>
+    </div>
+    <div class="nieuws">
+      {%- for post in site.posts limit: 3 %}
+      {% include nieuwskaart.html post=post %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap">
+    <div class="cta">
+      {% include polder.html %}
+      <div>
+        <h2>Twijfel je of wij bij je passen?</h2>
+        <p>Kom langs voor een rondleiding, of stel je vraag gewoon even. We denken graag met je mee.</p>
+      </div>
+      <div class="knoppen">
+        <a class="knop knop--licht" href="{{ '/aanmelden/#orientatie' | relative_url }}">Plan een bezoek</a>
+        <a class="knop knop--licht" href="{{ '/contact/' | relative_url }}">Stel een vraag</a>
+      </div>
+    </div>
+  </div>
+</section>

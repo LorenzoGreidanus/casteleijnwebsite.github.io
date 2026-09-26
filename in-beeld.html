@@ -1,0 +1,58 @@
+---
+layout: default
+title: In beeld
+permalink: /in-beeld/
+description: Bekijk de introductiefilm, foto's en het laatste nieuws van het Casteleijn College in Emmeloord.
+---
+{% include paginakop.html kop="Het Casteleijn College in beeld" intro="Een kijkje in de school: de film, de lokalen, de lessen en wat er speelt." %}
+
+<section class="sectie">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Film</p>
+      <h2>Maak kennis met onze school</h2>
+    </div>
+    {% include video.html id=site.data.school.video_intro poster="/assets/img/slider-keuken.jpg" titel="Bekijk de introductiefilm" %}
+  </div>
+</section>
+
+<section class="sectie sectie--zand" id="fotos">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Foto's</p>
+      <h2>Zo ziet een lesdag eruit</h2>
+      <p class="lead">Leren door te doen: in de keuken, in de werkplaats en aan de tekentafel.</p>
+    </div>
+    <ul class="galerij">
+      {%- for f in site.data.fotos %}
+      <li><figure><img src="{{ f.bestand | relative_url }}" alt="{{ f.alt }}" loading="lazy"><figcaption>{{ f.onderschrift }}</figcaption></figure></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sectie" id="nieuws">
+  <div class="wrap">
+    <div class="sectie__kop">
+      <p class="bovenkop">Nieuws</p>
+      <h2>Wat er speelt</h2>
+    </div>
+    <div class="nieuws">
+      {%- for post in site.posts %}
+      {% include nieuwskaart.html post=post %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie sectie--zand">
+  <div class="wrap split">
+    <div>
+      <p class="bovenkop">Werken bij</p>
+      <h2>Werken bij het Casteleijn College</h2>
+      <p>Voor onze leerlingen zoeken we de beste leraren en ondersteuners. Op de werken-bij-site van Eduvier vind je meer informatie en vacatures, voor onze school en voor de andere scholen van Eduvier.</p>
+      <a class="knop" href="{{ site.data.school.werkenbij }}">Bekijk vacatures</a>
+    </div>
+    {% include video.html id=site.data.school.video_werkenbij poster="/assets/img/foto-keuken.jpg" titel="Film: werken bij Eduvier" %}
+  </div>
+</section>

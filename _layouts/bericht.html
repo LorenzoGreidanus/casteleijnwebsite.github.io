@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% include paginakop.html kop=page.title %}
+<article class="sectie">
+  <div class="wrap wrap--smal tekst">
+    <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%-d' }} {% assign m = page.date | date: '%-m' | minus: 1 %}{{ "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," | slice: m }} {{ page.date | date: '%Y' }}</time></p>
+    {% if page.afbeelding %}<img class="bericht__foto" src="{{ page.afbeelding | relative_url }}" alt="{{ page.alt }}">{% endif %}
+    {{ content }}
+    <p><a class="pijllink" href="{{ '/in-beeld/#nieuws' | relative_url }}">Al het nieuws <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+  </div>
+</article>

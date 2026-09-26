@@ -1,0 +1,17 @@
+{%- comment -%} Agenda uit _data/agenda.yml. Verlopen items worden in de browser verborgen. {%- endcomment -%}
+{%- assign max = include.max | default: 99 -%}
+<ol class="agenda" data-max="{{ max }}">
+  {%- for a in site.data.agenda %}
+  {%- assign eind = a.tot | default: a.datum -%}
+  <li class="agenda__item agenda__item--{{ a.soort }}" data-eind="{{ eind | date: '%Y-%m-%d' }}">
+    <time class="agenda__datum" datetime="{{ a.datum | date: '%Y-%m-%d' }}">
+      <span class="agenda__dag">{{ a.datum | date: '%-d' }}</span>
+      <span class="agenda__maand">{% assign m = a.datum | date: '%-m' | minus: 1 %}{{ "jan,feb,mrt,apr,mei,jun,jul,aug,sep,okt,nov,dec" | split: "," | slice: m }}</span>
+    </time>
+    <div class="agenda__tekst">
+      <h3>{% if a.url %}<a href="{{ a.url | relative_url }}">{{ a.titel }}</a>{% else %}{{ a.titel }}{% endif %}</h3>
+      <p>{% if a.tot %}t/m {{ a.tot | date: '%-d' }} {% assign m2 = a.tot | date: '%-m' | minus: 1 %}{{ "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," | slice: m2 }}. {% endif %}{{ a.tekst }}</p>
+    </div>
+  </li>
+  {%- endfor %}
+</ol>

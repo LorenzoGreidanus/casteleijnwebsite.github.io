@@ -1,0 +1,59 @@
+# Agenda — nieuwe activiteiten toevoegen? Kopieer een blok en pas het aan.
+# datum: JJJJ-MM-DD. Voorbije items verdwijnen automatisch van de website.
+- datum: 2026-10-01
+  tot: 2026-10-02
+  titel: Studiedagen team
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2026-10-12
+  tot: 2026-10-16
+  titel: Herfstvakantie
+  soort: vakantie
+- datum: 2026-11-11
+  titel: Studiedag team
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2026-11-16
+  titel: Informatieavond
+  tekst: Voor ouders/verzorgers en leerlingen die meer willen weten over onze school. 19.00–20.00 uur, inloop vanaf 18.45 uur.
+  url: /aanmelden/#informatieavond
+  soort: activiteit
+- datum: 2026-12-07
+  titel: Studiedag team
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2026-12-21
+  tot: 2027-01-01
+  titel: Kerstvakantie
+  soort: vakantie
+- datum: 2027-02-22
+  tot: 2027-02-26
+  titel: Voorjaarsvakantie
+  soort: vakantie
+- datum: 2027-03-10
+  titel: Studiedag team
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2027-03-26
+  titel: Goede Vrijdag
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2027-03-29
+  titel: Tweede Paasdag
+  soort: vakantie
+- datum: 2027-04-26
+  tot: 2027-05-07
+  titel: Meivakantie
+  tekst: Inclusief extra vrije dagen op 3, 4 en 7 mei.
+  soort: vakantie
+- datum: 2027-05-17
+  titel: Tweede Pinksterdag
+  soort: vakantie
+- datum: 2027-06-11
+  titel: Studiedag team
+  tekst: Leerlingen zijn vrij.
+  soort: vrij
+- datum: 2027-07-12
+  tot: 2027-08-20
+  titel: Zomervakantie
+  soort: vakantie

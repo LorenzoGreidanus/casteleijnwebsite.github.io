@@ -1,0 +1,43 @@
+{%- assign school = site.data.school -%}
+<a class="skiplink" href="#inhoud">Ga direct naar de inhoud</a>
+<div class="topbalk">
+  <div class="wrap topbalk__in">
+    <span class="topbalk__eduvier">Een school van <a href="{{ school.eduvier }}">Eduvier onderwijsgroep</a></span>
+    <ul class="topbalk__links">
+      <li><a href="tel:{{ school.telefoon_link }}"><svg aria-hidden="true" class="i"><use href="#i-tel"/></svg>{{ school.telefoon }}</a></li>
+      <li><a href="mailto:{{ school.email }}"><svg aria-hidden="true" class="i"><use href="#i-mail"/></svg>Mail ons</a></li>
+      <li><a href="{{ school.werkenbij }}">Werken bij</a></li>
+    </ul>
+  </div>
+</div>
+<header class="kop" id="kop">
+  <div class="wrap kop__in">
+    <a class="kop__logo" href="{{ '/' | relative_url }}" aria-label="Casteleijn College — naar de homepage">
+      <img src="{{ '/assets/img/logo-casteleijn-college.png' | relative_url }}" alt="Casteleijn College" width="250" height="70">
+    </a>
+    <button class="menuknop" aria-expanded="false" aria-controls="hoofdmenu">
+      <span class="menuknop__streep" aria-hidden="true"></span>
+      <span class="menuknop__label">Menu</span>
+    </button>
+    <nav class="hoofdmenu" id="hoofdmenu" aria-label="Hoofdmenu">
+      <ul class="hoofdmenu__lijst">
+        {%- for item in site.data.navigatie %}
+        {%- assign actief = false -%}
+        {%- if page.url == item.url -%}{%- assign actief = true -%}{%- endif %}
+        <li class="hoofdmenu__item{% if item.sub %} heeft-sub{% endif %}">
+          <a href="{{ item.url | relative_url }}"{% if actief %} aria-current="page"{% endif %}>{{ item.titel }}</a>
+          {%- if item.sub %}
+          <button class="subknop" aria-expanded="false" aria-label="Submenu {{ item.titel }}"><svg aria-hidden="true" class="i"><use href="#i-pijl-onder"/></svg></button>
+          <ul class="submenu">
+            {%- for sub in item.sub %}
+            <li><a href="{{ sub.url | relative_url }}">{{ sub.titel }}</a></li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+      <a class="knop knop--accent hoofdmenu__cta" href="{{ '/aanmelden/' | relative_url }}"{% if page.url == '/aanmelden/' %} aria-current="page"{% endif %}>Aanmelden</a>
+    </nav>
+  </div>
+</header>
