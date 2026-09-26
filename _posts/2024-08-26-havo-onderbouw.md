@@ -8,4 +8,4 @@ Sinds schooljaar 2024-2025 bieden we in de onderbouw ook de leerweg havo aan. Zo
 
 In de havo-onderbouw krijg je een uitdagend programma dat je voorbereidt op de bovenbouw van de havo. Je krijgt Nederlands, Engels en wiskunde, maar ook geschiedenis, aardrijkskunde, economie en biologie. Net als in de andere leerwegen werk je in een kleine klas, met een vaste mentor.
 
-[Lees meer over de havo-onderbouw]({{ '/onderwijs/' | relative_url }}#havo)
+[Lees meer over de havo-onderbouw]({{ '/leerwegen/havo/' | relative_url }})

@@ -1,0 +1,113 @@
+---
+layout: default
+title: Voor ouders
+permalink: /ouders/
+description: Schooltijden, vakanties, vrije dagen, documenten en contact met de mentor. Alle praktische informatie voor ouders van het Casteleijn College.
+---
+{%- assign school = site.data.school -%}
+{% include pkop.html kop='Alles voor ouders, <span class="groen-tekst">op één plek.</span>' intro="Schooltijden, vakanties, vrije dagen en documenten voor schooljaar 2026-2027. En wie je aanspreekpunt is." stijl="groen" %}
+
+<nav class="sprong" aria-label="Op deze pagina"><div class="wrap"><ul>
+  <li><a href="#mentor">Aanspreekpunt</a></li>
+  <li><a href="#schooltijden">Schooltijden</a></li>
+  <li><a href="#vakanties">Vakanties &amp; vrije dagen</a></li>
+  <li><a href="#agenda">Agenda</a></li>
+  <li><a href="#documenten">Documenten</a></li>
+</ul></div></nav>
+
+<section class="sectie" id="mentor">
+  <div class="wrap split">
+    <div>
+      <p class="label">Aanspreekpunt</p>
+      <h2>De mentor is er voor jou en je kind.</h2>
+      <p class="lead">We vinden een goede samenwerking met ouders heel belangrijk, en betrekken je actief bij de schoolloopbaan van je kind.</p>
+      <p>De mentor is de spil in het contact tussen leerling, ouders en school. Heb je een vraag of zorg? Neem dan eerst contact op met de mentor. Algemene vragen kun je ook stellen via <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a> of <a href="mailto:{{ school.email }}">{{ school.email }}</a>.</p>
+    </div>
+    <div class="kader kader--nacht opkomst">
+      <h3>Snel geregeld</h3>
+      <ul class="vinken" style="color:#d7e3ee">
+        <li><a href="{{ school.verlof }}">Verlof aanvragen buiten de vakanties (pdf)</a></li>
+        <li><a href="{{ school.schoolgids }}">Schoolgids {{ school.schooljaar }} (pdf)</a></li>
+        <li><a href="{{ '/school/#medezeggenschap' | relative_url }}">Meepraten in de MR</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sectie zand" id="schooltijden">
+  <div class="wrap">
+    <div class="koprij"><div>
+      <p class="label">Schooltijden</p>
+      <h2>Elke dag hetzelfde ritme.</h2>
+      <p class="lead">De schooldag begint en eindigt elke dag op hetzelfde moment. Zo weet je kind altijd waar het aan toe is.</p>
+    </div></div>
+    <div class="week">
+      {%- assign dagen = "Maandag,Dinsdag,Woensdag,Donderdag,Vrijdag" | split: "," -%}
+      {%- for dag in dagen %}
+      <div class="week__dag opkomst"><strong>{{ dag }}</strong><div class="week__blok">08.30<br>–<br>14.15 uur</div></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie" id="vakanties">
+  <div class="wrap">
+    <div class="koprij"><div>
+      <p class="label">Schooljaar 2026-2027</p>
+      <h2>Vakanties en vrije dagen.</h2>
+    </div></div>
+    <div class="split split--boven">
+      <div>
+        <h3>Vakanties</h3>
+        <div class="tabel-wrap">
+          <table class="tabel">
+            <caption class="visueel-verborgen">Vakanties 2026-2027</caption>
+            <tbody>
+              <tr><th scope="row">Herfstvakantie</th><td>12 t/m 16 oktober 2026</td></tr>
+              <tr><th scope="row">Kerstvakantie</th><td>21 december 2026 t/m 1 januari 2027</td></tr>
+              <tr><th scope="row">Voorjaarsvakantie</th><td>22 t/m 26 februari 2027</td></tr>
+              <tr><th scope="row">Pasen</th><td>maandag 29 maart 2027</td></tr>
+              <tr><th scope="row">Meivakantie</th><td>26 april t/m 7 mei 2027*</td></tr>
+              <tr><th scope="row">Pinksteren</th><td>maandag 17 mei 2027</td></tr>
+              <tr><th scope="row">Zomervakantie</th><td>12 juli t/m 20 augustus 2027</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="klein" style="margin-top:12px">* 3, 4 en 7 mei zijn extra vrije dagen voor leerlingen. Omdat ze aansluiten op feestdagen of vakanties, staan ze in het vakantierooster.</p>
+      </div>
+      <div>
+        <h3>Extra vrije dagen</h3>
+        <p>Op deze dagen heeft het team een studie- of organisatiedag. Leerlingen zijn dan vrij.</p>
+        <ul class="vinken">
+          <li>dinsdag 15 september 2026</li>
+          <li>donderdag 1 oktober 2026</li>
+          <li>vrijdag 2 oktober 2026</li>
+          <li>woensdag 11 november 2026</li>
+          <li>maandag 7 december 2026</li>
+          <li>woensdag 10 maart 2027</li>
+          <li>vrijdag 26 maart 2027 (Goede Vrijdag)</li>
+          <li>vrijdag 11 juni 2027</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sectie zand" id="agenda">
+  <div class="wrap wrap--smal">
+    <p class="label">Agenda</p>
+    <h2 class="d-3">Wat komt eraan?</h2>
+    {% include agenda.html %}
+  </div>
+</section>
+
+<section class="sectie" id="documenten">
+  <div class="wrap">
+    <div class="koprij"><div><p class="label">Documenten</p><h2 class="d-3">Downloads</h2></div></div>
+    <div class="raster raster--3">
+      <a class="kaart kaart--link opkomst" href="{{ school.schoolgids }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></div><h3>Schoolgids {{ school.schooljaar }}</h3><p>Alle informatie voor dit schooljaar, voor leerlingen en ouders.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link opkomst" href="{{ school.verlof }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-kalender"/></svg></div><h3>Verlofaanvraag</h3><p>Verlof aanvragen buiten de schoolvakanties.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link opkomst" href="{{ school.aandacht_plus }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg></div><h3>Informatie Aandacht+</h3><p>Over het samenwerkingsverband en de toelaatbaarheidsverklaring.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+{%- assign p = include.post -%}
+<article class="verhaal{% if include.groot %} verhaal--groot{% endif %}">
+  <div class="verhaal__foto">{% if p.afbeelding %}<img src="{{ p.afbeelding | relative_url }}" alt="" loading="lazy">{% endif %}</div>
+  <time datetime="{{ p.date | date: '%Y-%m-%d' }}">{% include datum.html d=p.date %}</time>
+  <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+  <p>{{ p.samenvatting | default: p.excerpt | strip_html | truncate: 150 }}</p>
+</article>

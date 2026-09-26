@@ -1,13 +1,17 @@
 title: Casteleijn College
 description: >-
-  Voortgezet speciaal onderwijs in Emmeloord op vmbo-bb, vmbo-kb, vmbo-tl en havo-niveau (onderbouw).
-  Kleine klassen, een vaste mentor en een voorspelbare schooldag.
+  Voortgezet speciaal onderwijs in Emmeloord. Vmbo-bb, vmbo-kb, vmbo-tl en havo-onderbouw
+  in kleine klassen, met een vaste mentor en een voorspelbare schooldag.
 lang: nl
 url: "https://lorenzogreidanus.github.io"
 baseurl: "/casteleijnwebsite.github.io"
-permalink: /nieuws/:year/:month/:title/
+permalink: /verhalen/:year/:month/:title/
 timezone: Europe/Amsterdam
 markdown: kramdown
+collections:
+  leerwegen:
+    output: true
+    permalink: /leerwegen/:name/
 exclude:
   - README.md
   - Gemfile
@@ -15,4 +19,6 @@ exclude:
   - vendor
 defaults:
   - scope: { path: "", type: posts }
-    values: { layout: bericht }
+    values: { layout: verhaal }
+  - scope: { path: "", type: leerwegen }
+    values: { layout: leerweg }

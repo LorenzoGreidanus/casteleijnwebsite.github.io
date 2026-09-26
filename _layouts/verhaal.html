@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% include pkop.html kop=page.title ouder="Verhalen" ouder_url="/verhalen/" %}
+<article class="sectie">
+  <div class="wrap wrap--smal tekst">
+    <p class="label"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% include datum.html d=page.date %}</time></p>
+    {% if page.afbeelding %}<div class="fotorond" style="margin-bottom:40px"><img src="{{ page.afbeelding | relative_url }}" alt="{{ page.alt }}"></div>{% endif %}
+    {{ content }}
+    <p class="mt"><a class="pijl" href="{{ '/verhalen/#nieuws' | relative_url }}">Alle verhalen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+  </div>
+</article>

@@ -1,0 +1,9 @@
+{%- comment -%} Paginakop. Parameters: kop (html toegestaan), intro, foto, alt, stijl ("groen") {%- endcomment -%}
+<section class="pkop{% if include.stijl %} pkop--{{ include.stijl }}{% endif %}{% if include.foto %} pkop--foto{% endif %}">
+  <div class="wrap pkop__in">
+    <nav class="kruimel" aria-label="Kruimelpad"><ol><li><a href="{{ '/' | relative_url }}">Home</a></li>{% if include.ouder %}<li><a href="{{ include.ouder_url | relative_url }}">{{ include.ouder }}</a></li>{% endif %}<li aria-current="page">{{ page.title }}</li></ol></nav>
+    <h1>{{ include.kop | default: page.title }}</h1>
+    {% if include.intro %}<p class="lead">{{ include.intro }}</p>{% endif %}
+  </div>
+  <div class="pkop__vorm" aria-hidden="true">{% if include.foto %}<img src="{{ include.foto | relative_url }}" alt="">{% endif %}</div>
+</section>

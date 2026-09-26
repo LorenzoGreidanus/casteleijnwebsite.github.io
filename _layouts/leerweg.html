@@ -1,0 +1,41 @@
+---
+layout: default
+---
+{%- assign lijst = site.leerwegen | sort: 'volgorde' -%}
+{% capture kop %}{{ page.title }}<span class="groen-tekst" style="display:block;font-size:.42em;letter-spacing:-.02em;margin-top:.3em">{{ page.slogan }}</span>{% endcapture %}
+{% include pkop.html kop=kop intro=page.intro foto=page.foto ouder="Leerwegen" ouder_url="/leerwegen/" %}
+
+<section class="sectie">
+  <div class="wrap split split--boven split--breed-links">
+    <div class="tekst">
+      <p class="label">{{ page.naam }}</p>
+      {{ content }}
+      <div class="kader">
+        <h3>Voor elke leerling</h3>
+        <p>Samen bepalen we wat mogelijk en haalbaar is, en welke ondersteuning je nodig hebt. Denk aan extra tijd, extra of herhaalde uitleg en werken op je eigen tempo. Met een positieve aanpak werken we aan zelfvertrouwen en zelfstandigheid.</p>
+      </div>
+    </div>
+    <aside class="kaart" style="position:sticky;top:110px">
+      <h3>In het kort</h3>
+      {% include meter.html praktijk=page.praktijk %}
+      <ul class="vinken">{% for k in page.kenmerken %}<li>{{ k }}</li>{% endfor %}</ul>
+      <p class="mb-0"><strong>Hierna kun je door naar</strong></p>
+      <ul class="chips" style="margin-top:10px">{% for n in page.na %}<li>{{ n }}</li>{% endfor %}</ul>
+      <a class="knop knop--groen" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Kom kennismaken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    </aside>
+  </div>
+</section>
+
+<section class="sectie sectie--krap zand">
+  <div class="wrap">
+    <h2 class="d-3">Bekijk ook de andere leerwegen</h2>
+    <nav class="lw-nav" aria-label="Leerwegen">
+      {%- for lw in lijst %}
+      <a href="{{ lw.url | relative_url }}"{% if lw.url == page.url %} aria-current="page"{% endif %}><strong>{{ lw.title }}</strong><span>{{ lw.naam }}</span></a>
+      {%- endfor %}
+    </nav>
+    <p class="mt"><a class="pijl" href="{{ '/toekomst/' | relative_url }}">Zo werkt stage bij ons <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+  </div>
+</section>
+
+{% include afsluiter.html %}

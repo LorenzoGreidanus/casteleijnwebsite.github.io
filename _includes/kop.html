@@ -1,0 +1,32 @@
+{%- assign school = site.data.school -%}
+<a class="skiplink" href="#inhoud">Ga direct naar de inhoud</a>
+<header class="kop" id="kop">
+  <div class="wrap kop__in">
+    <a class="kop__logo" href="{{ '/' | relative_url }}"><img src="{{ '/assets/img/logo-casteleijn-college.png' | relative_url }}" alt="Casteleijn College — naar de homepage" width="250" height="70"></a>
+    <nav class="kop__nav" aria-label="Hoofdmenu">
+      <ul>
+        {%- for item in site.data.navigatie %}
+        <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url or page.collection == 'leerwegen' and item.url == '/leerwegen/' %} aria-current="page"{% endif %}>{{ item.titel }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <div class="kop__acties">
+      <a class="knop knop--groen" href="{{ '/aanmelden/' | relative_url }}">Aanmelden</a>
+      <button class="menuknop" type="button" aria-expanded="false" aria-controls="menu-overlay"><span class="menuknop__icoon" aria-hidden="true"></span><span class="menuknop__tekst">Menu</span><span class="visueel-verborgen"> openen</span></button>
+    </div>
+  </div>
+</header>
+<div class="menu-overlay" id="menu-overlay" aria-label="Menu" role="dialog">
+  <ul>
+    <li><a class="menu-overlay__link" href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}><strong>Home</strong></a></li>
+    {%- for item in site.data.navigatie %}
+    <li><a class="menu-overlay__link" href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}><strong>{{ item.titel }}</strong><span>{{ item.uitleg }}</span></a></li>
+    {%- endfor %}
+    <li><a class="menu-overlay__link" href="{{ '/vragen/' | relative_url }}"><strong>Veelgestelde vragen</strong><span>Snel antwoord op je vraag</span></a></li>
+  </ul>
+  <div class="menu-overlay__contact">
+    <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a>
+    <a href="mailto:{{ school.email }}">{{ school.email }}</a>
+    <span>{{ school.bezoekadres }}, {{ school.postcode_plaats }}</span>
+  </div>
+</div>

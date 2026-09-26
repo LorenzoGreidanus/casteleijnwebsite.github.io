@@ -1,0 +1,64 @@
+---
+layout: default
+title: Leerwegen
+permalink: /leerwegen/
+description: Vergelijk de leerwegen van het Casteleijn College - vmbo-bb, vmbo-kb, vmbo-tl en havo-onderbouw - en ontdek welke bij je past.
+---
+{%- assign leerwegen = site.leerwegen | sort: 'volgorde' -%}
+{% include pkop.html kop='Vier wegen. <span class="groen-tekst">Eén die bij jou past.</span>' intro="Je krijgt bij ons theorie- én praktijkvakken. In vmbo-tl en havo ligt de nadruk op theorie. In vmbo-bb en vmbo-kb leer je vooral in de praktijk." stijl="groen" %}
+
+<section class="sectie">
+  <div class="wrap">
+    <div class="lwlijst">
+      {%- for lw in leerwegen %}
+      <a class="lwkaart opkomst" href="{{ lw.url | relative_url }}">
+        <div class="lwkaart__foto"><img src="{{ lw.foto | relative_url }}" alt="" loading="lazy"></div>
+        <div class="lwkaart__tekst">
+          <p class="lwkaart__naam">{{ lw.title }}</p>
+          <p class="lwkaart__sub">{{ lw.naam }}</p>
+          {% include meter.html praktijk=lw.praktijk %}
+          <p>{{ lw.intro }}</p>
+          <span class="pijl">Bekijk {{ lw.title }} <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie zand">
+  <div class="wrap">
+    <div class="koprij"><div><p class="label">Naast elkaar</p><h2 class="d-3">Vergelijk de leerwegen</h2></div></div>
+    <div class="tabel-wrap">
+      <table class="tabel">
+        <caption class="visueel-verborgen">Vergelijking van de leerwegen</caption>
+        <thead><tr><th scope="col">Leerweg</th><th scope="col">Nadruk</th><th scope="col">Bijzonder</th><th scope="col">Daarna</th></tr></thead>
+        <tbody>
+          {%- for lw in leerwegen %}
+          <tr><th scope="row"><a href="{{ lw.url | relative_url }}">{{ lw.title }}</a></th><td>{{ lw.slogan }}</td><td>{{ lw.kenmerken | first }}</td><td>{{ lw.na | join: ' of ' }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sectie">
+  <div class="wrap split">
+    <div>
+      <p class="label">Voor elke leerweg</p>
+      <h2 class="d-3">Samen kijken we wat bij je past.</h2>
+      <p class="lead">Twijfel je welke leerweg het beste bij je past? Daar denken we graag over mee, samen met jou en je ouders.</p>
+      <ul class="vinken">
+        <li>Extra tijd als je dat nodig hebt</li>
+        <li>Extra of herhaalde uitleg</li>
+        <li>Werken op je eigen tempo</li>
+        <li>Veel aandacht voor leren leren en sociale vaardigheden</li>
+      </ul>
+      <a class="knop" href="{{ '/contact/' | relative_url }}">Stel je vraag <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    </div>
+    <div class="polderfoto opkomst"><img src="{{ '/assets/img/foto-keuken.jpg' | relative_url }}" alt="Leerlingen en een leraar aan het werk in de praktijkkeuken" loading="lazy"></div>
+  </div>
+</section>
+
+{% include afsluiter.html %}

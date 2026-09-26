@@ -1,0 +1,51 @@
+---
+layout: default
+title: Verhalen
+permalink: /verhalen/
+description: Film, foto's en nieuws van het Casteleijn College in Emmeloord.
+---
+{% include pkop.html kop='Het Casteleijn College <span class="groen-tekst">in beeld.</span>' intro="Een kijkje in de school: de film, de lokalen, de lessen en wat er speelt." %}
+
+<section class="sectie">
+  <div class="wrap">
+    {% include video.html id=site.data.school.video_intro poster="/assets/img/slider-keuken.jpg" titel="Bekijk de introductiefilm" %}
+  </div>
+</section>
+
+<section class="sectie zand" id="fotos">
+  <div class="wrap">
+    <div class="koprij"><div>
+      <p class="label">Foto's</p>
+      <h2>Leren door te doen.</h2>
+      <p class="lead">In de keuken, in de werkplaats en aan de tekentafel.</p>
+    </div></div>
+    <ul class="galerij">
+      {%- for f in site.data.fotos %}
+      <li class="opkomst"><figure><img src="{{ f.bestand | relative_url }}" alt="{{ f.alt }}" loading="lazy"><figcaption>{{ f.onderschrift }}</figcaption></figure></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="sectie" id="nieuws">
+  <div class="wrap">
+    <div class="koprij"><div><p class="label">Nieuws</p><h2>Wat er speelt.</h2></div></div>
+    <div class="verhalen">
+      {%- for post in site.posts %}
+      {% include verhaal.html post=post %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sectie donker" id="werken-bij">
+  <div class="wrap split">
+    <div>
+      <p class="label">Werken bij</p>
+      <h2>Werk dat ertoe doet.</h2>
+      <p class="lead" style="color:#c9d8e5">Voor onze leerlingen zoeken we de beste leraren en ondersteuners. Op de werken-bij-site van Eduvier vind je vacatures voor onze school en de andere scholen van Eduvier.</p>
+      <a class="knop knop--groen" href="{{ site.data.school.werkenbij }}">Bekijk vacatures <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    </div>
+    {% include video.html id=site.data.school.video_werkenbij poster="/assets/img/foto-keuken.jpg" titel="Film: werken bij Eduvier" %}
+  </div>
+</section>

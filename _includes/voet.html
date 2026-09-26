@@ -1,0 +1,47 @@
+{%- assign school = site.data.school -%}
+<footer class="voet">
+  <div class="wrap voet__boven">
+    <div>
+      <img class="voet__logo" src="{{ '/assets/img/logo-casteleijn-college.png' | relative_url }}" alt="Casteleijn College" width="250" height="70" loading="lazy">
+      <p>Voortgezet speciaal onderwijs in Emmeloord.<br>Een vaste plek. Jouw eigen weg.</p>
+      <p>Een school van <a href="{{ school.eduvier }}">Eduvier onderwijsgroep</a>.</p>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></li>
+        <li><a href="mailto:{{ school.email }}">{{ school.email }}</a></li>
+        <li>{{ school.bezoekadres }}<br>{{ school.postcode_plaats }}</li>
+        <li><small>Post: {{ school.postadres }}, {{ school.postadres_plaats }}</small></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Snel naar</h2>
+      <ul>
+        {%- for item in site.data.navigatie %}<li><a href="{{ item.url | relative_url }}">{{ item.titel }}</a></li>{% endfor %}
+        <li><a href="{{ '/vragen/' | relative_url }}">Veelgestelde vragen</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Handig</h2>
+      <ul>
+        <li><a href="{{ '/aanmelden/#kennismaken' | relative_url }}">Oriëntatiebezoek aanvragen</a></li>
+        <li><a href="{{ '/ouders/#vakanties' | relative_url }}">Vakanties {{ school.schooljaar }}</a></li>
+        <li><a href="{{ school.schoolgids }}">Schoolgids (pdf)</a></li>
+        <li><a href="{{ school.werkenbij }}">Werken bij</a></li>
+        <li><a href="{{ school.linkedin }}">Eduvier op LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="voet__onder">
+    <div class="wrap">
+      <span>© {{ site.time | date: '%Y' }} Casteleijn College · Eduvier onderwijsgroep</span>
+      <ul>
+        <li><a href="https://www.eduvier.nl/privacy">Privacy</a></li>
+        <li><a href="https://www.eduvier.nl/cookieverklaring">Cookies</a></li>
+        <li><a href="https://www.eduvier.nl/disclaimer">Disclaimer</a></li>
+        <li><a href="{{ '/merkboek/' | relative_url }}">Merkboek</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

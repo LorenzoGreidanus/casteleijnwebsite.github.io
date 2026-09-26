@@ -1,45 +1,47 @@
-/* Casteleijn College — kleine, toegankelijke interacties. Werkt ook zonder JavaScript. */
+/* Casteleijn College — kleine, toegankelijke interacties. De site werkt ook zonder JavaScript. */
 (function () {
-  // Mobiel menu
-  var knop = document.querySelector('.menuknop');
-  var menu = document.getElementById('hoofdmenu');
-  if (knop && menu) {
-    knop.addEventListener('click', function () {
-      var open = knop.getAttribute('aria-expanded') === 'true';
-      knop.setAttribute('aria-expanded', String(!open));
-      menu.classList.toggle('open', !open);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menu.classList.contains('open')) { knop.click(); knop.focus(); }
-    });
-    menu.addEventListener('click', function (e) {
-      if (e.target.closest('a') && menu.classList.contains('open')) { knop.setAttribute('aria-expanded', 'false'); menu.classList.remove('open'); }
-    });
-  }
-  document.querySelectorAll('.subknop').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var open = b.getAttribute('aria-expanded') === 'true';
-      b.setAttribute('aria-expanded', String(!open));
-      b.nextElementSibling.classList.toggle('open', !open);
-    });
-  });
+  var body = document.body;
 
-  // Agenda: verlopen items verbergen, maximum tonen
+  // Kop krijgt schaduw na scrollen
+  var kop = document.getElementById('kop');
+  var opScroll = function () { kop && kop.classList.toggle('gescrold', window.scrollY > 8); };
+  window.addEventListener('scroll', opScroll, { passive: true }); opScroll();
+
+  // Menu (overlay)
+  var knop = document.querySelector('.menuknop');
+  var menu = document.getElementById('menu-overlay');
+  function zetMenu(open) {
+    knop.setAttribute('aria-expanded', String(open));
+    knop.querySelector('.visueel-verborgen').textContent = open ? ' sluiten' : ' openen';
+    menu.classList.toggle('open', open);
+    body.classList.toggle('menu-open', open);
+    if (open) { var eerste = menu.querySelector('a'); eerste && eerste.focus(); }
+  }
+  if (knop && menu) {
+    knop.addEventListener('click', function () { zetMenu(knop.getAttribute('aria-expanded') !== 'true'); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) { zetMenu(false); knop.focus(); }
+    });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) zetMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1180 && menu.classList.contains('open')) zetMenu(false); });
+  }
+
+  // Agenda: verlopen items verbergen
   var vandaag = new Date(); vandaag.setHours(0, 0, 0, 0);
   document.querySelectorAll('.agenda').forEach(function (lijst) {
     var max = parseInt(lijst.dataset.max, 10) || 99, getoond = 0;
     lijst.querySelectorAll('.agenda__item').forEach(function (item) {
       var eind = new Date(item.dataset.eind + 'T23:59:59');
-      if (eind < vandaag || getoond >= max) { item.hidden = true; } else { getoond++; }
+      if (eind < vandaag || getoond >= max) item.hidden = true; else getoond++;
     });
-    if (getoond === 0) {
+    if (!getoond) {
       var p = document.createElement('p'); p.className = 'agenda__leeg';
       p.textContent = 'Er staan op dit moment geen activiteiten in de agenda.';
       lijst.after(p);
     }
   });
 
-  // Video pas laden na klik (privacy)
+  // Video pas laden na klik
   document.querySelectorAll('.video').forEach(function (v) {
     var b = v.querySelector('.video__knop');
     b.addEventListener('click', function () {
@@ -52,20 +54,33 @@
     });
   });
 
-  // Actieve link in "Op deze pagina"
-  var subLinks = document.querySelectorAll('.opdeze a');
-  if (subLinks.length && 'IntersectionObserver' in window) {
+  // Rustig verschijnen bij scrollen
+  var opkomst = document.querySelectorAll('.opkomst');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('zichtbaar'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    opkomst.forEach(function (el) { io.observe(el); });
+  } else {
+    opkomst.forEach(function (el) { el.classList.add('zichtbaar'); });
+  }
+
+  // Sprongmenu: actieve sectie markeren
+  var sprong = document.querySelectorAll('.sprong a');
+  if (sprong.length && 'IntersectionObserver' in window) {
     var map = {};
-    subLinks.forEach(function (a) { map[a.hash.slice(1)] = a; });
+    sprong.forEach(function (a) { map[decodeURIComponent(a.hash.slice(1))] = a; });
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting && map[en.target.id]) {
-          subLinks.forEach(function (a) { a.classList.remove('actief'); });
-          map[en.target.id].classList.add('actief');
-          map[en.target.id].scrollIntoView({ block: 'nearest', inline: 'center' });
+        var a = map[en.target.id];
+        if (en.isIntersecting && a) {
+          sprong.forEach(function (x) { x.classList.remove('actief'); });
+          a.classList.add('actief');
+          var ul = a.closest('ul');
+          ul.scrollTo({ left: a.offsetLeft - ul.clientWidth / 2 + a.clientWidth / 2, behavior: 'smooth' });
         }
       });
-    }, { rootMargin: '-45% 0px -50% 0px' });
+    }, { rootMargin: '-40% 0px -55% 0px' });
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
   }
 
@@ -75,15 +90,15 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      var d = new FormData(form), regels = [];
-      form.querySelectorAll('[name]').forEach(function (el) {
-        if (el.type === 'checkbox') return;
+      var regels = [];
+      form.querySelectorAll('input[name]:not([type=checkbox])').forEach(function (el) {
         var label = form.querySelector('label[for="' + el.id + '"]');
-        regels.push((label ? label.textContent.replace('*', '').trim() : el.name) + ': ' + (d.get(el.name) || '-'));
+        regels.push((label ? label.textContent.replace('*', '').trim() : el.name) + ': ' + (el.value || '-'));
       });
       regels.push('', 'Akkoord met verwerking gegevens: ja');
-      var url = 'mailto:' + form.dataset.naar + '?subject=' + encodeURIComponent('Aanvraag oriëntatiebezoek') + '&body=' + encodeURIComponent('Beste Casteleijn College,\n\nGraag vraag ik een oriëntatiebezoek aan.\n\n' + regels.join('\n') + '\n\nMet vriendelijke groet,');
-      window.location.href = url;
+      window.location.href = 'mailto:' + form.dataset.naar +
+        '?subject=' + encodeURIComponent('Aanvraag oriëntatiebezoek') +
+        '&body=' + encodeURIComponent('Beste Casteleijn College,\n\nGraag vraag ik een oriëntatiebezoek aan.\n\n' + regels.join('\n') + '\n\nMet vriendelijke groet,');
       var ok = document.getElementById('formulier-melding');
       if (ok) ok.hidden = false;
     });

@@ -3,8 +3,9 @@ layout: default
 title: Pagina niet gevonden
 permalink: /404.html
 ---
-{% include paginakop.html kop="Deze pagina bestaat niet (meer)" intro="Misschien is de pagina verplaatst. Geen probleem: hieronder vind je de weg terug." %}
+{% include pkop.html kop='Deze pagina <span class="groen-tekst">bestaat niet.</span>' intro="Misschien is hij verplaatst. Geen probleem: hieronder vind je de weg terug." %}
 <section class="sectie"><div class="wrap knoppen">
   <a class="knop" href="{{ '/' | relative_url }}">Naar de homepage</a>
+  <a class="knop knop--rand" href="{{ '/vragen/' | relative_url }}">Veelgestelde vragen</a>
   <a class="knop knop--rand" href="{{ '/contact/' | relative_url }}">Contact</a>
 </div></section>

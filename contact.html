@@ -5,29 +5,33 @@ permalink: /contact/
 description: Contactgegevens, adres en route van het Casteleijn College, Hoefbladstraat 1a in Emmeloord.
 ---
 {%- assign school = site.data.school -%}
-{% include paginakop.html kop="Contact" intro="Heb je een vraag? Bel of mail ons gerust. We helpen je graag verder." %}
+{% include pkop.html kop='Zeg het maar. <span class="groen-tekst">We luisteren.</span>' intro="Heb je een vraag? Bel of mail ons gerust. Vragen over een leerling? Neem dan eerst contact op met de mentor." %}
 
 <section class="sectie">
-  <div class="wrap split" style="align-items:stretch">
+  <div class="wrap split split--boven">
     <div>
-      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-tel"/></svg></span><div><strong>Bellen</strong><br><a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></div></div>
-      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-mail"/></svg></span><div><strong>Mailen</strong><br><a href="mailto:{{ school.email }}">{{ school.email }}</a></div></div>
-      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-plek"/></svg></span><div><strong>Bezoekadres</strong><br>{{ school.bezoekadres }}<br>{{ school.postcode_plaats }}<br><a href="https://www.google.com/maps/dir/?api=1&destination=Hoefbladstraat+1A+8302+VM+Emmeloord">Routebeschrijving</a></div></div>
-      <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></span><div><strong>Postadres</strong><br>{{ school.postadres }}<br>{{ school.postadres_plaats }}<br><small style="color:var(--grijs)">Post gaat via het centrale adres van Eduvier in Lelystad.</small></div></div>
-      <div class="kader"><p><strong>Vragen over je kind?</strong> De mentor is het vaste aanspreekpunt voor ouders en leerlingen.</p></div>
+      <p class="label">Bellen of mailen</p>
+      <div class="contact-groot">
+        <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a>
+        <a href="mailto:{{ school.email }}" style="font-size:clamp(1.3rem,2.6vw,2rem)">{{ school.email }}</a>
+      </div>
+      <div class="raster raster--2 mt" style="gap:16px">
+        <div class="kaart"><h3>Bezoekadres</h3><p>{{ school.bezoekadres }}<br>{{ school.postcode_plaats }}</p><a class="pijl" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hoefbladstraat+1A+8302+VM+Emmeloord">Route plannen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></div>
+        <div class="kaart"><h3>Postadres</h3><p>{{ school.postadres }}<br>{{ school.postadres_plaats }}</p><p class="klein">Post gaat via het centrale adres van Eduvier.</p></div>
+      </div>
     </div>
-    <div class="kaartje">
-      <iframe title="Kaart: Casteleijn College, Hoefbladstraat 1a Emmeloord" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hoefbladstraat+1A,+8302+VM+Emmeloord&output=embed"></iframe>
+    <div class="maps">
+      <iframe title="Kaart: Casteleijn College, Hoefbladstraat 1a Emmeloord" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hoefbladstraat+1A,+8302+VM+Emmeloord&amp;output=embed"></iframe>
     </div>
   </div>
 </section>
 
-<section class="sectie sectie--zand">
+<section class="sectie zand">
   <div class="wrap">
     <div class="raster raster--3">
-      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ '/aanmelden/#orientatie' | relative_url }}"><h3>Oriëntatiebezoek</h3><p>Rondleiding van maximaal 30 minuten.</p><span class="pijllink">Aanvragen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ '/praktisch/#vakanties' | relative_url }}"><h3>Vakanties & vrije dagen</h3><p>Het rooster voor {{ school.schooljaar }}.</p><span class="pijllink">Bekijken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link" style="text-decoration:none;color:inherit" href="{{ school.werkenbij }}"><h3>Werken bij</h3><p>Vacatures bij onze school en Eduvier.</p><span class="pijllink">Naar vacatures <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ '/aanmelden/#kennismaken' | relative_url }}"><h3>Rondleiding aanvragen</h3><p>Maximaal 30 minuten, binnen een week contact.</p><span class="pijl">Aanvragen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ '/vragen/' | relative_url }}"><h3>Veelgestelde vragen</h3><p>Misschien staat je antwoord er al tussen.</p><span class="pijl">Bekijken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ school.werkenbij }}"><h3>Werken bij</h3><p>Vacatures bij onze school en Eduvier.</p><span class="pijl">Naar vacatures <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
     </div>
   </div>
 </section>

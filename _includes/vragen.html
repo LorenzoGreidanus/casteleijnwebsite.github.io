@@ -1,0 +1,8 @@
+<div class="vragen">
+  {%- for v in site.data.vragen %}{% if include.alleen_home and v.home != true %}{% continue %}{% endif %}
+  <details>
+    <summary>{{ v.vraag }}</summary>
+    <div class="vragen__antwoord"><p>{{ v.antwoord }}</p>{% if v.url %}<a class="pijl" href="{{ v.url | relative_url }}">Lees meer <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>{% endif %}</div>
+  </details>
+  {%- endfor %}
+</div>

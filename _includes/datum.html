@@ -1,0 +1,1 @@
+{%- assign d = include.d -%}{%- assign m = d | date: '%-m' | minus: 1 -%}{{ d | date: '%-d' }} {{ "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," | slice: m | first }}{% unless include.zonderjaar %} {{ d | date: '%Y' }}{% endunless %}

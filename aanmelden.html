@@ -2,67 +2,67 @@
 layout: default
 title: Aanmelden
 permalink: /aanmelden/
-description: Zo meld je je aan bij het Casteleijn College. Met een toelaatbaarheidsverklaring (TLV), een oriëntatiebezoek en de informatieavond op 16 november.
+description: Zo word je leerling van het Casteleijn College - met een toelaatbaarheidsverklaring (TLV), een oriëntatiebezoek en de informatieavond op 16 november 2026.
 ---
-{% include paginakop.html kop="Kennismaken en aanmelden" intro="Wil je bij ons op school komen? Hier lees je hoe dat werkt, en hoe je eerst rustig kunt komen kijken." %}
+{%- assign school = site.data.school -%}
+{% include pkop.html kop='Welkom. <span class="groen-tekst">Zo word je leerling.</span>' intro="Eerst rustig kennismaken, dan aanmelden. Hier lees je precies hoe het werkt." stijl="groen" %}
 
-<nav class="opdeze" aria-label="Op deze pagina">
-  <div class="wrap"><ul>
-    <li><a href="#stappen">In 3 stappen</a></li>
-    <li><a href="#tlv">Toelaatbaarheidsverklaring</a></li>
-    <li><a href="#orientatie">Oriëntatiebezoek</a></li>
-    <li><a href="#informatieavond">Informatieavond</a></li>
-  </ul></div>
-</nav>
+<nav class="sprong" aria-label="Op deze pagina"><div class="wrap"><ul>
+  <li><a href="#stappen">In 3 stappen</a></li>
+  <li><a href="#tlv">Toelaatbaarheidsverklaring</a></li>
+  <li><a href="#kennismaken">Rondleiding aanvragen</a></li>
+  <li><a href="#informatieavond">Informatieavond</a></li>
+</ul></div></nav>
 
-<section class="sectie sectie--zand" id="stappen">
+<section class="sectie" id="stappen">
   <div class="wrap">
-    <div class="sectie__kop">
-      <p class="bovenkop">In 3 stappen</p>
-      <h2>Van eerste vraag tot eerste schooldag</h2>
-    </div>
+    <div class="koprij"><div><p class="label">In 3 stappen</p><h2>Van eerste vraag tot eerste schooldag.</h2></div></div>
     <ol class="stappen">
-      <li><h3>Vraag een TLV aan</h3><p class="mb-0">Voor het voortgezet speciaal onderwijs heb je een toelaatbaarheidsverklaring nodig van het samenwerkingsverband in je woonplaats.</p></li>
-      <li><h3>Kom kennismaken</h3><p class="mb-0">Vraag een oriëntatiebezoek aan of kom naar de informatieavond. Zo zie je zelf of de school bij je past.</p></li>
-      <li><h3>Meld je aan</h3><p class="mb-0">Met een TLV meld je je aan. We kijken samen welke locatie het beste bij je past.</p></li>
+      <li class="opkomst"><h3>Vraag een TLV aan</h3><p>Voor het voortgezet speciaal onderwijs heb je een toelaatbaarheidsverklaring nodig van het samenwerkingsverband in je woonplaats.</p></li>
+      <li class="opkomst"><h3>Kom kennismaken</h3><p>Vraag een rondleiding aan of kom naar de informatieavond. Zo zie je zelf of de school bij je past.</p></li>
+      <li class="opkomst"><h3>Meld je aan</h3><p>Met een TLV meld je je aan. We kijken samen welke plek het beste bij je past.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="sectie" id="tlv">
-  <div class="wrap wrap--smal tekst">
-    <p class="bovenkop">Toelaatbaarheidsverklaring</p>
-    <h2>Wat is een TLV?</h2>
-    <p>Je kunt je niet zomaar aanmelden bij een school voor voortgezet speciaal onderwijs. Daarvoor heb je een toelaatbaarheidsverklaring (TLV) nodig. Die krijg je van het samenwerkingsverband in je woonplaats.</p>
-    <p>Woon je in Emmeloord, Lemmer of Urk? Dan is dat <strong>Aandacht+</strong>, het samenwerkingsverband voor voortgezet (speciaal) onderwijs in die regio.</p>
-    <ul>
-      <li><a href="{{ site.data.school.aandacht_plus }}">Informatie van Aandacht+ (pdf)</a></li>
-      <li><a href="{{ site.data.school.eduvier }}">Meer over aanmelden en de TLV op de website van Eduvier</a></li>
-    </ul>
+<section class="sectie donker" id="tlv">
+  <div class="wrap split split--boven">
+    <div>
+      <p class="label">Toelaatbaarheidsverklaring</p>
+      <h2>Wat is een TLV?</h2>
+    </div>
+    <div class="tekst">
+      <p>Je kunt je niet zomaar aanmelden bij een school voor voortgezet speciaal onderwijs. Daarvoor heb je een toelaatbaarheidsverklaring (TLV) nodig. Die krijg je van het samenwerkingsverband in je woonplaats.</p>
+      <p>Woon je in Emmeloord, Lemmer of Urk? Dan is dat <strong style="color:#fff">Aandacht+</strong>, het samenwerkingsverband voor voortgezet (speciaal) onderwijs in die regio.</p>
+      <div class="knoppen">
+        <a class="knop knop--groen" href="{{ school.aandacht_plus }}">Informatie Aandacht+ (pdf)</a>
+        <a class="knop knop--rand" href="{{ school.eduvier }}">Aanmelden bij Eduvier</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="sectie sectie--zand" id="orientatie">
-  <div class="wrap split" style="align-items:start">
+<section class="sectie zand" id="kennismaken">
+  <div class="wrap split split--boven">
     <div>
-      <p class="bovenkop">Oriëntatiebezoek</p>
-      <h2>Kom rustig kijken</h2>
-      <p>Wil je of willen je ouders meer weten over de school? Vraag dan een oriëntatiebezoek aan. Je krijgt een rondleiding en we vertellen je alles over de school. Daarna leggen we uit hoe aanmelden werkt.</p>
-      <ul class="vinklijst">
+      <p class="label">Rondleiding aanvragen</p>
+      <h2>Kom rustig kijken.</h2>
+      <p class="lead">Tijdens een oriëntatiebezoek krijg je een rondleiding en vertellen we je alles over de school. Daarna leggen we uit hoe aanmelden werkt.</p>
+      <ul class="vinken">
         <li>Duurt maximaal <strong>30 minuten</strong></li>
-        <li>Je ouders vragen het bezoek aan</li>
-        <li>We nemen <strong>binnen een week</strong> contact met je op</li>
+        <li>Ouders vragen het bezoek aan</li>
+        <li>We nemen <strong>binnen een week</strong> contact op</li>
       </ul>
-      <p>Liever bellen? Dat kan ook: <a href="tel:{{ site.data.school.telefoon_link }}">{{ site.data.school.telefoon }}</a>.</p>
+      <p>Liever bellen? <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></p>
     </div>
     <div class="kaart">
       <h3>Oriëntatiebezoek aanvragen</h3>
-      <p class="hint">Velden met <span class="verplicht">*</span> zijn verplicht. Na het versturen opent je e-mailprogramma met een ingevuld bericht.</p>
-      <form class="formulier" id="orientatieformulier" data-naar="{{ site.data.school.email }}" action="mailto:{{ site.data.school.email }}" method="post" enctype="text/plain">
+      <p class="klein">Velden met <span class="verplicht">*</span> zijn verplicht. Na het versturen opent je e-mailprogramma met een ingevuld bericht.</p>
+      <form class="formulier" id="orientatieformulier" data-naar="{{ school.email }}" action="mailto:{{ school.email }}" method="post" enctype="text/plain">
         <div class="veld"><label for="f-naam">Naam van je kind <span class="verplicht">*</span></label><input id="f-naam" name="naam" required autocomplete="off"></div>
         <div class="rij">
           <div class="veld"><label for="f-school">Huidige school <span class="verplicht">*</span></label><input id="f-school" name="school" required></div>
-          <div class="veld"><label for="f-leerjaar">Leerjaar en niveau <span class="verplicht">*</span></label><input id="f-leerjaar" name="leerjaar" required placeholder="bijv. groep 8, of 2 vmbo-kb"></div>
+          <div class="veld"><label for="f-leerjaar">Leerjaar en niveau <span class="verplicht">*</span></label><input id="f-leerjaar" name="leerjaar" required placeholder="bijv. groep 8"></div>
         </div>
         <div class="veld"><label for="f-woonplaats">Woonplaats <span class="verplicht">*</span></label><input id="f-woonplaats" name="woonplaats" required autocomplete="address-level2"></div>
         <div class="veld"><label for="f-voorkeur">Voorkeur voor dag en tijd</label><input id="f-voorkeur" name="voorkeur" placeholder="bijv. dinsdagmiddag"></div>
@@ -70,30 +70,33 @@ description: Zo meld je je aan bij het Casteleijn College. Met een toelaatbaarhe
           <div class="veld"><label for="f-email">Je e-mailadres <span class="verplicht">*</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
           <div class="veld"><label for="f-tel">Je telefoonnummer</label><input id="f-tel" name="telefoon" type="tel" autocomplete="tel"></div>
         </div>
-        <label class="akkoord"><input type="checkbox" name="akkoord" required> <span>Ik ga akkoord met het verwerken van mijn gegevens, zodat de school mij informatie kan geven. Lees ook het <a href="https://www.eduvier.nl/privacy">privacyreglement</a>. <span class="verplicht">*</span></span></label>
-        <div><button class="knop knop--accent" type="submit">Aanvraag versturen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></button></div>
-        <p class="kader" id="formulier-melding" hidden role="status">Je e-mailprogramma is geopend. Verstuur het bericht om je aanvraag af te ronden. Lukt dat niet? Mail dan naar <a href="mailto:{{ site.data.school.email }}">{{ site.data.school.email }}</a>.</p>
+        <label class="akkoord"><input type="checkbox" name="akkoord" required><span>Ik ga akkoord met het verwerken van mijn gegevens, zodat de school mij informatie kan geven. Lees ook het <a href="https://www.eduvier.nl/privacy">privacyreglement</a>. <span class="verplicht">*</span></span></label>
+        <div><button class="knop knop--groot" type="submit">Aanvraag versturen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></button></div>
+        <p class="kader" id="formulier-melding" hidden role="status">Je e-mailprogramma is geopend. Verstuur het bericht om je aanvraag af te ronden. Lukt dat niet? Mail dan naar <a href="mailto:{{ school.email }}">{{ school.email }}</a>.</p>
       </form>
     </div>
   </div>
 </section>
 
-<section class="sectie" id="informatieavond">
+<section class="sectie groen-vlak" id="informatieavond">
   <div class="wrap split">
     <div>
-      <p class="bovenkop">Informatieavond</p>
-      <h2>Maandag 16 november 2026</h2>
-      <p>Kies je binnenkort een school voor het nieuwe schooljaar? Kom dan naar onze informatieavond voor ouders/verzorgers en leerlingen. We vertellen over de school en de leerwegen, en beantwoorden al je vragen. Voor leerlingen geeft een van de brugklasmentoren een interactieve presentatie.</p>
-      <div class="raster raster--2" style="margin-bottom:24px">
-        <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-klok"/></svg></span><div><strong>19.00 – 20.00 uur</strong><br>Inloop vanaf 18.45 uur</div></div>
-        <div class="contactregel"><span class="kaart__icoon"><svg aria-hidden="true" class="i"><use href="#i-plek"/></svg></span><div><strong>Casteleijn College</strong><br>Hoefbladstraat 1a, Emmeloord</div></div>
-      </div>
-      <p>Laat je even weten dat je komt, en met hoeveel personen?</p>
+      <p class="label">Informatieavond</p>
+      <h2>Maandag<br>16 november.</h2>
+      <p class="lead">Kies je binnenkort een school voor volgend schooljaar? Kom dan naar onze informatieavond voor ouders/verzorgers en leerlingen.</p>
+      <p>We vertellen over de school en de leerwegen, en beantwoorden al je vragen. Voor leerlingen geeft een van de brugklasmentoren een interactieve presentatie.</p>
+    </div>
+    <div class="kaart opkomst" style="border:0">
+      <p class="cijfer__getal" style="font-size:clamp(2.6rem,6vw,4.5rem)">19.00<span style="color:var(--groen)">–</span>20.00</p>
+      <ul class="vinken">
+        <li>Inloop vanaf 18.45 uur</li>
+        <li>Casteleijn College, Hoefbladstraat 1a, Emmeloord</li>
+        <li>Laat even weten dat je komt, en met hoeveel personen</li>
+      </ul>
       <div class="knoppen">
-        <a class="knop knop--accent" href="mailto:{{ site.data.school.email }}?subject=Aanmelding%20informatieavond%2016%20november&body=Wij%20komen%20naar%20de%20informatieavond%20met%20...%20personen.">Aanmelden per mail</a>
-        <a class="knop knop--rand" href="tel:{{ site.data.school.telefoon_link }}">Bel {{ site.data.school.telefoon }}</a>
+        <a class="knop" href="mailto:{{ school.email }}?subject=Aanmelding%20informatieavond%2016%20november&amp;body=Wij%20komen%20naar%20de%20informatieavond%20met%20...%20personen.">Aanmelden per mail</a>
+        <a class="knop knop--rand" href="tel:{{ school.telefoon_link }}">Bel {{ school.telefoon }}</a>
       </div>
     </div>
-    <div class="split__beeld"><div class="foto foto--polder"><img src="{{ '/assets/img/foto-keuken.jpg' | relative_url }}" alt="Leerlingen en een docent in de praktijkkeuken" loading="lazy" width="600" height="330"></div></div>
   </div>
 </section>
