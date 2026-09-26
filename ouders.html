@@ -18,12 +18,11 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 <section class="sectie" id="mentor">
   <div class="wrap split">
     <div>
-      <p class="label">Aanspreekpunt</p>
       <h2>De mentor is er voor jou en je kind.</h2>
       <p class="lead">We vinden een goede samenwerking met ouders heel belangrijk, en betrekken je actief bij de schoolloopbaan van je kind.</p>
       <p>De mentor is de spil in het contact tussen leerling, ouders en school. Heb je een vraag of zorg? Neem dan eerst contact op met de mentor. Algemene vragen kun je ook stellen via <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a> of <a href="mailto:{{ school.email }}">{{ school.email }}</a>.</p>
     </div>
-    <div class="kader kader--nacht opkomst">
+    <div class="kader kader--nacht">
       <h3>Snel geregeld</h3>
       <ul class="vinken" style="color:#d7e3ee">
         <li><a href="{{ school.verlof }}">Verlof aanvragen buiten de vakanties (pdf)</a></li>
@@ -37,14 +36,13 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 <section class="sectie zand" id="schooltijden">
   <div class="wrap">
     <div class="koprij"><div>
-      <p class="label">Schooltijden</p>
       <h2>Elke dag hetzelfde ritme.</h2>
       <p class="lead">De schooldag begint en eindigt elke dag op hetzelfde moment. Zo weet je kind altijd waar het aan toe is.</p>
     </div></div>
     <div class="week">
       {%- assign dagen = "Maandag,Dinsdag,Woensdag,Donderdag,Vrijdag" | split: "," -%}
       {%- for dag in dagen %}
-      <div class="week__dag opkomst"><strong>{{ dag }}</strong><div class="week__blok">08.30<br>–<br>14.15 uur</div></div>
+      <div class="week__dag"><strong>{{ dag }}</strong><div class="week__blok">08.30<br>–<br>14.15 uur</div></div>
       {%- endfor %}
     </div>
   </div>
@@ -53,8 +51,7 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 <section class="sectie" id="vakanties">
   <div class="wrap">
     <div class="koprij"><div>
-      <p class="label">Schooljaar 2026-2027</p>
-      <h2>Vakanties en vrije dagen.</h2>
+      <h2>Vakanties en vrije dagen {{ school.schooljaar }}.</h2>
     </div></div>
     <div class="split split--boven">
       <div>
@@ -95,7 +92,6 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 
 <section class="sectie zand" id="agenda">
   <div class="wrap wrap--smal">
-    <p class="label">Agenda</p>
     <h2 class="d-3">Wat komt eraan?</h2>
     {% include agenda.html %}
   </div>
@@ -103,11 +99,11 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 
 <section class="sectie" id="documenten">
   <div class="wrap">
-    <div class="koprij"><div><p class="label">Documenten</p><h2 class="d-3">Downloads</h2></div></div>
+    <div class="koprij"><div><h2 class="d-3">Downloads</h2></div></div>
     <div class="raster raster--3">
-      <a class="kaart kaart--link opkomst" href="{{ school.schoolgids }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></div><h3>Schoolgids {{ school.schooljaar }}</h3><p>Alle informatie voor dit schooljaar, voor leerlingen en ouders.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link opkomst" href="{{ school.verlof }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-kalender"/></svg></div><h3>Verlofaanvraag</h3><p>Verlof aanvragen buiten de schoolvakanties.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link opkomst" href="{{ school.aandacht_plus }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg></div><h3>Informatie Aandacht+</h3><p>Over het samenwerkingsverband en de toelaatbaarheidsverklaring.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ school.schoolgids }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></div><h3>Schoolgids {{ school.schooljaar }}</h3><p>Alle informatie voor dit schooljaar, voor leerlingen en ouders.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ school.verlof }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-kalender"/></svg></div><h3>Verlofaanvraag</h3><p>Verlof aanvragen buiten de schoolvakanties.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
+      <a class="kaart kaart--link" href="{{ school.aandacht_plus }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg></div><h3>Informatie Aandacht+</h3><p>Over het samenwerkingsverband en de toelaatbaarheidsverklaring.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
     </div>
   </div>
 </section>

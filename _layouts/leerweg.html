@@ -8,7 +8,6 @@ layout: default
 <section class="sectie">
   <div class="wrap split split--boven split--breed-links">
     <div class="tekst">
-      <p class="label">{{ page.naam }}</p>
       {{ content }}
       <div class="kader">
         <h3>Voor elke leerling</h3>
@@ -21,7 +20,7 @@ layout: default
       <ul class="vinken">{% for k in page.kenmerken %}<li>{{ k }}</li>{% endfor %}</ul>
       <p class="mb-0"><strong>Hierna kun je door naar</strong></p>
       <ul class="chips" style="margin-top:10px">{% for n in page.na %}<li>{{ n }}</li>{% endfor %}</ul>
-      <a class="knop knop--groen" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Kom kennismaken <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+      <a class="knop knop--groen" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Plan een rondleiding <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
     </aside>
   </div>
 </section>

@@ -1,11 +1,16 @@
-/* Casteleijn College — kleine, toegankelijke interacties. De site werkt ook zonder JavaScript. */
+/* Casteleijn College: kleine, toegankelijke interacties. De site werkt ook zonder JavaScript. */
 (function () {
   var body = document.body;
 
-  // Kop krijgt schaduw na scrollen
+  // Kop krijgt schaduw zodra de bovenkant van de pagina uit beeld is (zonder scroll-listener)
   var kop = document.getElementById('kop');
-  var opScroll = function () { kop && kop.classList.toggle('gescrold', window.scrollY > 8); };
-  window.addEventListener('scroll', opScroll, { passive: true }); opScroll();
+  if (kop && 'IntersectionObserver' in window) {
+    var baken = document.createElement('div');
+    baken.setAttribute('aria-hidden', 'true');
+    baken.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:8px;pointer-events:none';
+    body.prepend(baken);
+    new IntersectionObserver(function (en) { kop.classList.toggle('gescrold', !en[0].isIntersecting); }).observe(baken);
+  }
 
   // Menu (overlay)
   var knop = document.querySelector('.menuknop');
@@ -53,17 +58,6 @@
       v.appendChild(f); v.classList.add('speelt'); f.focus();
     });
   });
-
-  // Rustig verschijnen bij scrollen
-  var opkomst = document.querySelectorAll('.opkomst');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('zichtbaar'); io.unobserve(en.target); } });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    opkomst.forEach(function (el) { io.observe(el); });
-  } else {
-    opkomst.forEach(function (el) { el.classList.add('zichtbaar'); });
-  }
 
   // Sprongmenu: actieve sectie markeren
   var sprong = document.querySelectorAll('.sprong a');

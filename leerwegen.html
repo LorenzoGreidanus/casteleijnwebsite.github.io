@@ -11,7 +11,7 @@ description: Vergelijk de leerwegen van het Casteleijn College - vmbo-bb, vmbo-k
   <div class="wrap">
     <div class="lwlijst">
       {%- for lw in leerwegen %}
-      <a class="lwkaart opkomst" href="{{ lw.url | relative_url }}">
+      <a class="lwkaart" href="{{ lw.url | relative_url }}">
         <div class="lwkaart__foto"><img src="{{ lw.foto | relative_url }}" alt="" loading="lazy"></div>
         <div class="lwkaart__tekst">
           <p class="lwkaart__naam">{{ lw.title }}</p>
@@ -28,7 +28,7 @@ description: Vergelijk de leerwegen van het Casteleijn College - vmbo-bb, vmbo-k
 
 <section class="sectie zand">
   <div class="wrap">
-    <div class="koprij"><div><p class="label">Naast elkaar</p><h2 class="d-3">Vergelijk de leerwegen</h2></div></div>
+    <div class="koprij"><div><h2 class="d-3">Vergelijk de leerwegen</h2></div></div>
     <div class="tabel-wrap">
       <table class="tabel">
         <caption class="visueel-verborgen">Vergelijking van de leerwegen</caption>
@@ -46,7 +46,6 @@ description: Vergelijk de leerwegen van het Casteleijn College - vmbo-bb, vmbo-k
 <section class="sectie">
   <div class="wrap split">
     <div>
-      <p class="label">Voor elke leerweg</p>
       <h2 class="d-3">Samen kijken we wat bij je past.</h2>
       <p class="lead">Twijfel je welke leerweg het beste bij je past? Daar denken we graag over mee, samen met jou en je ouders.</p>
       <ul class="vinken">
@@ -57,7 +56,7 @@ description: Vergelijk de leerwegen van het Casteleijn College - vmbo-bb, vmbo-k
       </ul>
       <a class="knop" href="{{ '/contact/' | relative_url }}">Stel je vraag <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
     </div>
-    <div class="polderfoto opkomst"><img src="{{ '/assets/img/foto-keuken.jpg' | relative_url }}" alt="Leerlingen en een leraar aan het werk in de praktijkkeuken" loading="lazy"></div>
+    <div class="polderfoto"><img src="{{ '/assets/img/foto-keuken.jpg' | relative_url }}" alt="Leerlingen en een leraar aan het werk in de praktijkkeuken" loading="lazy"></div>
   </div>
 </section>
 

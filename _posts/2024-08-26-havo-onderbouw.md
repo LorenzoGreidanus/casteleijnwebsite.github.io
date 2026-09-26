@@ -1,5 +1,5 @@
 ---
-title: Nieuw bij ons – de havo-onderbouw
+title: "Nieuw bij ons: de havo-onderbouw"
 samenvatting: Sinds schooljaar 2024-2025 kun je bij ons ook de havo-onderbouw volgen.
 afbeelding: /assets/img/foto-tekenen.jpg
 alt: Leerling werkt geconcentreerd aan een tekening
