@@ -10,12 +10,12 @@ layout: default
     <div class="tekst">
       {{ content }}
       <div class="kader">
-        <h3>Voor elke leerling</h3>
+        <h2 class="h3">Voor elke leerling</h2>
         <p>Samen bepalen we wat mogelijk en haalbaar is, en welke ondersteuning je nodig hebt. Denk aan extra tijd, extra of herhaalde uitleg en werken op je eigen tempo. Met een positieve aanpak werken we aan zelfvertrouwen en zelfstandigheid.</p>
       </div>
     </div>
-    <aside class="kaart" style="position:sticky;top:110px">
-      <h3>In het kort</h3>
+    <aside class="kaart kaart--plak">
+      <h2 class="h3">In het kort</h2>
       {% include meter.html praktijk=page.praktijk %}
       <ul class="vinken">{% for k in page.kenmerken %}<li>{{ k }}</li>{% endfor %}</ul>
       <p class="mb-0"><strong>Hierna kun je door naar</strong></p>

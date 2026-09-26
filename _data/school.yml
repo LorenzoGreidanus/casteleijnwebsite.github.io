@@ -15,3 +15,7 @@ aandacht_plus: https://www.eduvier.nl/casteleijncollege/wp-content/uploads/sites
 video_intro: xlwO8H2AS-Y
 video_werkenbij: eNEmD6o1xPs
 schooljaar: 2026-2027
+# Formulier "Rondleiding aanvragen" op /aanmelden/.
+# Vul hier de link van je formulier in (bijv. https://formspree.io/f/abcd1234).
+# Leeg laten = het formulier opent een ingevulde e-mail in het mailprogramma van de bezoeker.
+formulier_endpoint: ""

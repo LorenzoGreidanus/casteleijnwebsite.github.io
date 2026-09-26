@@ -1,5 +1,6 @@
-# Agenda — nieuwe activiteiten toevoegen? Kopieer een blok en pas het aan.
+# Agenda: nieuwe activiteiten toevoegen? Kopieer een blok en pas het aan.
 # datum: JJJJ-MM-DD. Voorbije items verdwijnen automatisch van de website.
+# De informatieavond op /aanmelden/ gebruikt het item met titel "Informatieavond" (datum, begin, einde, inloop).
 - datum: 2026-10-01
   tot: 2026-10-02
   titel: Studiedagen team
@@ -15,6 +16,9 @@
   soort: vrij
 - datum: 2026-11-16
   titel: Informatieavond
+  begin: "19.00"
+  einde: "20.00"
+  inloop: "18.45"
   tekst: Voor ouders/verzorgers en leerlingen die meer willen weten over onze school. 19.00–20.00 uur, inloop vanaf 18.45 uur.
   url: /aanmelden/#informatieavond
   soort: activiteit

@@ -1,3 +1,4 @@
+{%- assign school = site.data.school -%}
 <section class="afsluiter">
   <div class="afsluiter__vorm" aria-hidden="true"></div>
   <div class="wrap afsluiter__in">
@@ -5,7 +6,16 @@
     <p>{{ include.tekst | default: "Een rondleiding duurt maximaal 30 minuten. Je ziet de lokalen, ontmoet ons en stelt al je vragen. Daarna weet je of het Casteleijn College bij je past." }}</p>
     <div class="knoppen">
       <a class="knop knop--groot" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Plan een rondleiding <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-      <a class="knop knop--groot knop--rand" href="tel:{{ site.data.school.telefoon_link }}">Bel {{ site.data.school.telefoon }}</a>
+      <a class="knop knop--groot knop--rand" href="tel:{{ school.telefoon_link }}">Bel {{ school.telefoon }}</a>
     </div>
+    {%- if include.stappen %}
+    <h3 class="visueel-verborgen">Zo word je leerling</h3>
+    <ol class="afsluiter__stappen">
+      <li><strong>Kom op rondleiding</strong>Samen met je ouders, maximaal 30 minuten.</li>
+      <li><strong>Regel een TLV</strong>Nog geen toelaatbaarheidsverklaring? We helpen je op weg.</li>
+      <li><strong>Meld je aan</strong>We kijken samen welke plek het beste bij je past.</li>
+    </ol>
+    <p class="afsluiter__meer"><a class="pijl" href="{{ '/aanmelden/' | relative_url }}">Alles over aanmelden <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+    {%- endif %}
   </div>
 </section>

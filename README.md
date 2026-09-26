@@ -8,7 +8,7 @@ Nieuwe website voor het Casteleijn College (vso, Emmeloord), gebouwd met [Jekyll
 
 | Pagina | Bestand | Inhoud |
 |---|---|---|
-| Home | `index.html` | Belofte, wegwijzer per doelgroep, Rust/Ruimte/Richting, de school in het kort, leerwegen, stage-route, film, aanmelden, agenda, vragen, verhalen |
+| Home | `index.html` | Belofte, wegwijzer per doelgroep, Rust/Ruimte/Richting, de school in het kort, leerwegen, film, agenda met laatste nieuws, vragen, afsluiter met de drie stappen naar aanmelden |
 | De school | `school.html` | Wie we zijn, voor wie, aanpak, samenwerking, medezeggenschap |
 | Leerwegen | `leerwegen.html` + `_leerwegen/*.md` | Overzicht, vergelijking en een eigen pagina per leerweg |
 | Stage & toekomst | `toekomst.html` | Meer dan leren, stageroute, schoolcertificaten, ESF |
@@ -27,7 +27,8 @@ Alles kan direct in GitHub via het potloodje bij een bestand.
 - **Veelgestelde vragen:** `_data/vragen.yml` (`home: true` = ook op de homepage).
 - **Foto's:** zet de foto in `assets/img/` en voeg hem toe in `_data/fotos.yml` (met alt-tekst). Alleen foto's met toestemming.
 - **Leerwegen:** één bestand per leerweg in `_leerwegen/`.
-- **Contactgegevens, schoolgids-link, video's:** `_data/school.yml`.
+- **Contactgegevens, schoolgids-link, video's, formulierdienst:** `_data/school.yml`.
+- **Informatieavond:** het agenda-item met titel `Informatieavond` in `_data/agenda.yml` (datum, `begin`, `einde`, `inloop`). De pagina Aanmelden neemt dit vanzelf over en verbergt het blok als de avond voorbij is.
 - **Menu:** `_data/navigatie.yml`.
 - **Vakanties en vrije dagen:** tabel in `ouders.html` en `_data/agenda.yml`.
 
@@ -45,6 +46,6 @@ Komt de site op een eigen domein (bijv. `www.casteleijncollege.nl`)? Zet dan `ba
 
 ## Let op
 
-- Het oriëntatieformulier opent een ingevulde e-mail (de site heeft geen server). Voor een echt verzendformulier kan een dienst als Formspree of het formulierensysteem van Eduvier worden gekoppeld.
+- **Formulier "Rondleiding aanvragen":** zolang `formulier_endpoint` in `_data/school.yml` leeg is, opent het formulier een ingevulde e-mail (met een knop om de gegevens te kopiëren als er geen mailprogramma opent). Vul je daar de link van een formulierdienst in, bijvoorbeeld `https://formspree.io/f/abcd1234`, dan wordt de aanvraag direct op de pagina verstuurd, met bevestiging en foutmelding.
 - De pdf's (schoolgids, verlofaanvraag, Aandacht+) staan nog op eduvier.nl en worden daarheen gelinkt.
 - De YouTube-film laadt pas na een klik (privacyvriendelijk, geen cookies vooraf).

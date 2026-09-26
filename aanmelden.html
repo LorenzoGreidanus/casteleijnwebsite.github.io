@@ -2,26 +2,121 @@
 layout: default
 title: Aanmelden
 permalink: /aanmelden/
-description: Zo word je leerling van het Casteleijn College - met een toelaatbaarheidsverklaring (TLV), een oriëntatiebezoek en de informatieavond op 16 november 2026.
+description: Zo word je leerling van het Casteleijn College. Eerst een rondleiding, dan een toelaatbaarheidsverklaring (TLV) en aanmelden. Met de datum van de informatieavond.
 ---
 {%- assign school = site.data.school -%}
+{%- assign avond = site.data.agenda | where: "titel", "Informatieavond" | first -%}
+{%- assign endpoint = school.formulier_endpoint | strip -%}
 {% include pkop.html kop='Welkom. <span class="groen-tekst">Zo word je leerling.</span>' intro="Eerst rustig kennismaken, dan aanmelden. Hier lees je precies hoe het werkt." stijl="groen" %}
 
 <nav class="sprong" aria-label="Op deze pagina"><div class="wrap"><ul>
   <li><a href="#stappen">In 3 stappen</a></li>
-  <li><a href="#tlv">Toelaatbaarheidsverklaring</a></li>
   <li><a href="#kennismaken">Rondleiding aanvragen</a></li>
-  <li><a href="#informatieavond">Informatieavond</a></li>
+  <li><a href="#tlv">Wat is een TLV?</a></li>
+  {%- if avond %}<li><a href="#informatieavond">Informatieavond</a></li>{% endif %}
 </ul></div></nav>
 
 <section class="sectie" id="stappen">
   <div class="wrap">
     <div class="koprij"><div><h2>Van eerste vraag tot eerste schooldag.</h2></div></div>
     <ol class="stappen">
-      <li><h3>Vraag een TLV aan</h3><p>Voor het voortgezet speciaal onderwijs heb je een toelaatbaarheidsverklaring nodig van het samenwerkingsverband in je woonplaats.</p></li>
-      <li><h3>Kom kennismaken</h3><p>Vraag een rondleiding aan of kom naar de informatieavond. Zo zie je zelf of de school bij je past.</p></li>
-      <li><h3>Meld je aan</h3><p>Met een TLV meld je je aan. We kijken samen welke plek het beste bij je past.</p></li>
+      <li><h3>Kom op rondleiding</h3><p>Vraag een rondleiding aan of kom naar de informatieavond. Zo zie je zelf of de school bij je past.</p></li>
+      <li><h3>Regel een TLV</h3><p>Voor onze school heb je een toelaatbaarheidsverklaring (TLV) nodig. Die vraag je aan bij het samenwerkingsverband in je woonplaats. Nog geen TLV? We helpen je op weg.</p></li>
+      <li><h3>Meld je aan</h3><p>Heb je een TLV? Dan meld je je aan. We kijken samen welke plek het beste bij je past.</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="sectie zand" id="kennismaken">
+  <div class="wrap split split--boven">
+    <div>
+      <h2>Kom rustig kijken.</h2>
+      <p class="lead">Tijdens de rondleiding zie je de lokalen, ontmoet je ons en stel je al je vragen. Daarna leggen we uit hoe aanmelden werkt.</p>
+      <ul class="vinken">
+        <li>Duurt maximaal <strong>30 minuten</strong></li>
+        <li>Ouders vragen de rondleiding aan</li>
+        <li>We nemen <strong>binnen een week</strong> contact op</li>
+      </ul>
+      <p>Liever bellen? <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></p>
+    </div>
+    <div class="kaart" id="formulier-blok">
+      <h3>Rondleiding aanvragen</h3>
+      <p class="klein">Velden met <span class="verplicht" aria-hidden="true">*</span> zijn verplicht.{% if endpoint == "" %} Na het versturen opent je e-mailprogramma met een ingevuld bericht.{% endif %}</p>
+      <form class="formulier" id="orientatieformulier"
+        data-naar="{{ school.email }}" data-telefoon="{{ school.telefoon }}" data-tellink="{{ school.telefoon_link }}"
+        {% if endpoint != "" %}action="{{ endpoint }}" method="post" data-modus="online"{% else %}action="mailto:{{ school.email }}?subject=Aanvraag%20rondleiding" method="post" enctype="text/plain" data-modus="mail"{% endif %}>
+        {%- if endpoint != "" %}
+        <input type="hidden" name="_subject" value="Aanvraag rondleiding via de website">
+        <p class="visueel-verborgen" aria-hidden="true"><label>Laat dit veld leeg <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        {%- endif %}
+        <div class="veld">
+          <label for="f-ouder">Je naam <span class="verplicht" aria-hidden="true">*</span></label>
+          <input id="f-ouder" name="naam_ouder" required autocomplete="name" aria-describedby="f-ouder-fout" data-fout="Vul je naam in.">
+          <p class="veld__fout" id="f-ouder-fout" hidden></p>
+        </div>
+        <div class="veld">
+          <label for="f-naam">Naam van je kind <span class="verplicht" aria-hidden="true">*</span></label>
+          <input id="f-naam" name="naam_kind" required autocomplete="off" aria-describedby="f-naam-fout" data-fout="Vul de naam van je kind in.">
+          <p class="veld__fout" id="f-naam-fout" hidden></p>
+        </div>
+        <div class="veld">
+          <label for="f-school">Huidige school <span class="verplicht" aria-hidden="true">*</span></label>
+          <input id="f-school" name="huidige_school" required aria-describedby="f-school-fout" data-fout="Vul de huidige school in. Zit je kind nu niet op school? Schrijf dat dan op.">
+          <p class="veld__fout" id="f-school-fout" hidden></p>
+        </div>
+        <div class="rij">
+          <div class="veld">
+            <label for="f-leerjaar">Leerjaar <span class="verplicht" aria-hidden="true">*</span></label>
+            <select id="f-leerjaar" name="leerjaar" required aria-describedby="f-leerjaar-fout" data-fout="Kies het leerjaar.">
+              <option value="">Kies…</option>
+              <option>Groep 8 (basisschool)</option>
+              <option>Leerjaar 1</option>
+              <option>Leerjaar 2</option>
+              <option>Leerjaar 3</option>
+              <option>Leerjaar 4</option>
+              <option>Anders</option>
+            </select>
+            <p class="veld__fout" id="f-leerjaar-fout" hidden></p>
+          </div>
+          <div class="veld">
+            <label for="f-niveau">Niveau <span class="verplicht" aria-hidden="true">*</span></label>
+            <select id="f-niveau" name="niveau" required aria-describedby="f-niveau-fout" data-fout="Kies het niveau, of kies ‘Weet ik nog niet’.">
+              <option value="">Kies…</option>
+              <option>Vmbo-bb</option>
+              <option>Vmbo-kb</option>
+              <option>Vmbo-tl</option>
+              <option>Havo</option>
+              <option>Weet ik nog niet</option>
+            </select>
+            <p class="veld__fout" id="f-niveau-fout" hidden></p>
+          </div>
+        </div>
+        <div class="veld">
+          <label for="f-woonplaats">Woonplaats <span class="verplicht" aria-hidden="true">*</span></label>
+          <input id="f-woonplaats" name="woonplaats" required autocomplete="address-level2" aria-describedby="f-woonplaats-fout" data-fout="Vul je woonplaats in.">
+          <p class="veld__fout" id="f-woonplaats-fout" hidden></p>
+        </div>
+        <div class="veld">
+          <label for="f-voorkeur">Voorkeur voor dag en tijd <span class="klein">(niet verplicht)</span></label>
+          <input id="f-voorkeur" name="voorkeur" placeholder="bijv. dinsdagmiddag">
+        </div>
+        <div class="veld">
+          <label for="f-email">Je e-mailadres <span class="verplicht" aria-hidden="true">*</span></label>
+          <input id="f-email" name="email" type="email" required autocomplete="email" aria-describedby="f-email-fout" data-fout="Vul je e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.">
+          <p class="veld__fout" id="f-email-fout" hidden></p>
+        </div>
+        <div class="veld">
+          <label for="f-tel">Je telefoonnummer <span class="klein">(niet verplicht)</span></label>
+          <input id="f-tel" name="telefoon" type="tel" autocomplete="tel">
+        </div>
+        <div class="veld">
+          <label class="akkoord"><input type="checkbox" id="f-akkoord" name="akkoord" value="ja" required aria-describedby="f-akkoord-fout" data-fout="Vink dit aan, anders kunnen we je aanvraag niet verwerken."><span>Ik ga akkoord met het verwerken van mijn gegevens, zodat de school mij informatie kan geven. Lees ook het <a href="https://www.eduvier.nl/privacy">privacyreglement</a>. <span class="verplicht" aria-hidden="true">*</span></span></label>
+          <p class="veld__fout" id="f-akkoord-fout" hidden></p>
+        </div>
+        <div><button class="knop knop--groot" type="submit">Rondleiding aanvragen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></button></div>
+      </form>
+      <div class="formulier__melding" id="formulier-melding" role="status" tabindex="-1" hidden></div>
+    </div>
   </div>
 </section>
 
@@ -32,68 +127,38 @@ description: Zo word je leerling van het Casteleijn College - met een toelaatbaa
     </div>
     <div class="tekst">
       <p>Je kunt je niet zomaar aanmelden bij een school voor voortgezet speciaal onderwijs. Daarvoor heb je een toelaatbaarheidsverklaring (TLV) nodig. Die krijg je van het samenwerkingsverband in je woonplaats.</p>
-      <p>Woon je in Emmeloord, Lemmer of Urk? Dan is dat <strong style="color:#fff">Aandacht+</strong>, het samenwerkingsverband voor voortgezet (speciaal) onderwijs in die regio.</p>
+      <p>Woon je in Emmeloord, Lemmer of Urk? Dan is dat <strong>Aandacht+</strong>, het samenwerkingsverband voor voortgezet (speciaal) onderwijs in die regio.</p>
+      <p>Weet je niet waar je moet beginnen? Bel ons op <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a>. We kijken samen wat de volgende stap is.</p>
       <div class="knoppen">
         <a class="knop knop--groen" href="{{ school.aandacht_plus }}">Informatie Aandacht+ (pdf)</a>
-        <a class="knop knop--rand" href="{{ school.eduvier }}">Aanmelden bij Eduvier</a>
+        <a class="knop knop--rand knop--licht" href="{{ school.eduvier }}">Aanmelden bij Eduvier</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sectie zand" id="kennismaken">
-  <div class="wrap split split--boven">
-    <div>
-      <h2>Kom rustig kijken.</h2>
-      <p class="lead">Tijdens een oriëntatiebezoek krijg je een rondleiding en vertellen we je alles over de school. Daarna leggen we uit hoe aanmelden werkt.</p>
-      <ul class="vinken">
-        <li>Duurt maximaal <strong>30 minuten</strong></li>
-        <li>Ouders vragen het bezoek aan</li>
-        <li>We nemen <strong>binnen een week</strong> contact op</li>
-      </ul>
-      <p>Liever bellen? <a href="tel:{{ school.telefoon_link }}">{{ school.telefoon }}</a></p>
-    </div>
-    <div class="kaart">
-      <h3>Oriëntatiebezoek aanvragen</h3>
-      <p class="klein">Velden met <span class="verplicht">*</span> zijn verplicht. Na het versturen opent je e-mailprogramma met een ingevuld bericht.</p>
-      <form class="formulier" id="orientatieformulier" data-naar="{{ school.email }}" action="mailto:{{ school.email }}" method="post" enctype="text/plain">
-        <div class="veld"><label for="f-naam">Naam van je kind <span class="verplicht">*</span></label><input id="f-naam" name="naam" required autocomplete="off"></div>
-        <div class="rij">
-          <div class="veld"><label for="f-school">Huidige school <span class="verplicht">*</span></label><input id="f-school" name="school" required></div>
-          <div class="veld"><label for="f-leerjaar">Leerjaar en niveau <span class="verplicht">*</span></label><input id="f-leerjaar" name="leerjaar" required placeholder="bijv. groep 8"></div>
-        </div>
-        <div class="veld"><label for="f-woonplaats">Woonplaats <span class="verplicht">*</span></label><input id="f-woonplaats" name="woonplaats" required autocomplete="address-level2"></div>
-        <div class="veld"><label for="f-voorkeur">Voorkeur voor dag en tijd</label><input id="f-voorkeur" name="voorkeur" placeholder="bijv. dinsdagmiddag"></div>
-        <div class="rij">
-          <div class="veld"><label for="f-email">Je e-mailadres <span class="verplicht">*</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
-          <div class="veld"><label for="f-tel">Je telefoonnummer</label><input id="f-tel" name="telefoon" type="tel" autocomplete="tel"></div>
-        </div>
-        <label class="akkoord"><input type="checkbox" name="akkoord" required><span>Ik ga akkoord met het verwerken van mijn gegevens, zodat de school mij informatie kan geven. Lees ook het <a href="https://www.eduvier.nl/privacy">privacyreglement</a>. <span class="verplicht">*</span></span></label>
-        <div><button class="knop knop--groot" type="submit">Aanvraag versturen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></button></div>
-        <p class="kader" id="formulier-melding" hidden role="status">Je e-mailprogramma is geopend. Verstuur het bericht om je aanvraag af te ronden. Lukt dat niet? Mail dan naar <a href="mailto:{{ school.email }}">{{ school.email }}</a>.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="sectie groen-vlak" id="informatieavond">
+{%- if avond %}
+{%- assign avond_eind = avond.datum | date: '%Y-%m-%d' %}
+<section class="sectie groen-vlak" id="informatieavond" data-verloopt="{{ avond_eind }}">
   <div class="wrap split">
     <div>
-      <h2>Informatieavond op maandag 16 november.</h2>
+      <h2>Informatieavond op {% include datum.html d=avond.datum metdag=true zonderjaar=true %}.</h2>
       <p class="lead">Kies je binnenkort een school voor volgend schooljaar? Kom dan naar onze informatieavond voor ouders/verzorgers en leerlingen.</p>
       <p>We vertellen over de school en de leerwegen, en beantwoorden al je vragen. Voor leerlingen geeft een van de brugklasmentoren een interactieve presentatie.</p>
     </div>
-    <div class="kaart" style="border:0">
-      <p class="cijfer__getal" style="font-size:clamp(2.6rem,6vw,4.5rem)">19.00<span style="color:var(--groen)">–</span>20.00</p>
+    <div class="kaart kaart--kaal">
+      {%- if avond.begin %}<p class="cijfer__getal avondtijd">{{ avond.begin }}<span>–</span>{{ avond.einde }}</p>{% endif %}
       <ul class="vinken">
-        <li>Inloop vanaf 18.45 uur</li>
+        {%- if avond.inloop %}<li>Inloop vanaf {{ avond.inloop }} uur</li>{% endif %}
         <li>Casteleijn College, Hoefbladstraat 1a, Emmeloord</li>
         <li>Laat even weten dat je komt, en met hoeveel personen</li>
       </ul>
+      {%- capture onderwerp %}Aanmelding informatieavond {% include datum.html d=avond.datum zonderjaar=true %}{% endcapture %}
       <div class="knoppen">
-        <a class="knop" href="mailto:{{ school.email }}?subject=Aanmelding%20informatieavond%2016%20november&amp;body=Wij%20komen%20naar%20de%20informatieavond%20met%20...%20personen.">Aanmelden per mail</a>
+        <a class="knop" href="mailto:{{ school.email }}?subject={{ onderwerp | uri_escape }}&amp;body=Wij%20komen%20naar%20de%20informatieavond%20met%20...%20personen.">Aanmelden per mail</a>
         <a class="knop knop--rand" href="tel:{{ school.telefoon_link }}">Bel {{ school.telefoon }}</a>
       </div>
     </div>
   </div>
 </section>
+{%- endif %}

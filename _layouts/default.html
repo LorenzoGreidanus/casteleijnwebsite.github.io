@@ -26,5 +26,11 @@
     {{ content }}
   </main>
   {% include voet.html %}
+  <nav class="duimbalk" id="duimbalk" aria-label="Snel contact">
+    {%- unless page.url == '/aanmelden/' %}
+    <a class="knop knop--groen" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Plan een rondleiding</a>
+    {%- endunless %}
+    <a class="knop knop--rand" href="tel:{{ site.data.school.telefoon_link }}"><svg aria-hidden="true" class="i"><use href="#i-tel"/></svg>Bellen</a>
+  </nav>
 </body>
 </html>

@@ -100,10 +100,10 @@ description: Schooltijden, vakanties, vrije dagen, documenten en contact met de 
 <section class="sectie" id="documenten">
   <div class="wrap">
     <div class="koprij"><div><h2 class="d-3">Downloads</h2></div></div>
-    <div class="raster raster--3">
-      <a class="kaart kaart--link" href="{{ school.schoolgids }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg></div><h3>Schoolgids {{ school.schooljaar }}</h3><p>Alle informatie voor dit schooljaar, voor leerlingen en ouders.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link" href="{{ school.verlof }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-kalender"/></svg></div><h3>Verlofaanvraag</h3><p>Verlof aanvragen buiten de schoolvakanties.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-      <a class="kaart kaart--link" href="{{ school.aandacht_plus }}"><div class="kaart__vorm"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg></div><h3>Informatie Aandacht+</h3><p>Over het samenwerkingsverband en de toelaatbaarheidsverklaring.</p><span class="pijl">Download pdf <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></span></a>
-    </div>
+    <ul class="downloads">
+      <li><a href="{{ school.schoolgids }}"><svg aria-hidden="true" class="i"><use href="#i-doc"/></svg><span><strong>Schoolgids {{ school.schooljaar }}</strong>Alle informatie voor dit schooljaar, voor leerlingen en ouders.</span><span class="downloads__soort">pdf</span></a></li>
+      <li><a href="{{ school.verlof }}"><svg aria-hidden="true" class="i"><use href="#i-kalender"/></svg><span><strong>Verlofaanvraag</strong>Verlof aanvragen buiten de schoolvakanties.</span><span class="downloads__soort">pdf</span></a></li>
+      <li><a href="{{ school.aandacht_plus }}"><svg aria-hidden="true" class="i"><use href="#i-groep"/></svg><span><strong>Informatie Aandacht+</strong>Over het samenwerkingsverband en de toelaatbaarheidsverklaring.</span><span class="downloads__soort">pdf</span></a></li>
+    </ul>
   </div>
 </section>

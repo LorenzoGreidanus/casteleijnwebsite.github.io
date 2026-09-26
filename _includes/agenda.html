@@ -1,14 +1,24 @@
-{%- comment -%} Agenda uit _data/agenda.yml. Verlopen items verbergt de browser automatisch. {%- endcomment -%}
-<ol class="agenda" data-max="{{ include.max | default: 99 }}">
+{%- comment -%} Agenda uit _data/agenda.yml. Verlopen items vallen weg bij het bouwen én in de browser. {%- endcomment -%}
+{%- assign vandaag = site.time | date: '%Y-%m-%d' -%}
+{%- assign max = include.max | default: 99 -%}
+{%- assign getoond = 0 -%}
+<ol class="agenda" data-max="{{ max }}">
   {%- for a in site.data.agenda %}
-  {%- assign eind = a.tot | default: a.datum %}
-  <li class="agenda__item agenda__item--{{ a.soort }}" data-eind="{{ eind | date: '%Y-%m-%d' }}">
+  {%- assign eind = a.tot | default: a.datum | date: '%Y-%m-%d' %}
+  {%- if eind < vandaag %}{% continue %}{% endif %}
+  <li class="agenda__item agenda__item--{{ a.soort }}" data-eind="{{ eind }}"{% if getoond >= max %} hidden{% endif %}>
     <time class="agenda__datum" datetime="{{ a.datum | date: '%Y-%m-%d' }}">{{ a.datum | date: '%-d' }}<small>{% assign m = a.datum | date: '%-m' | minus: 1 %}{{ "jan,feb,mrt,apr,mei,jun,jul,aug,sep,okt,nov,dec" | split: "," | slice: m | first }} {{ a.datum | date: '%Y' }}</small></time>
     <div class="agenda__tekst">
       <span class="agenda__soort">{% case a.soort %}{% when 'vrij' %}Leerlingen vrij{% when 'vakantie' %}Vakantie{% else %}Activiteit{% endcase %}</span>
       <h3>{% if a.url %}<a href="{{ a.url | relative_url }}">{{ a.titel }}</a>{% else %}{{ a.titel }}{% endif %}</h3>
-      <p>{% if a.tot %}T/m {% include datum.html d=a.tot zonderjaar=true %}. {% endif %}{{ a.tekst }}</p>
+      {%- if a.tot or a.tekst %}
+      <p>{% if a.tot %}T/m {% include datum.html d=a.tot zonderjaar=true %}.{% if a.tekst %}{{ ' ' }}{% endif %}{% endif %}{{ a.tekst }}</p>
+      {%- endif %}
     </div>
   </li>
+  {%- assign getoond = getoond | plus: 1 %}
   {%- endfor %}
 </ol>
+{%- if getoond == 0 %}
+<p class="agenda__leeg">Er staan op dit moment geen activiteiten in de agenda.</p>
+{%- endif %}

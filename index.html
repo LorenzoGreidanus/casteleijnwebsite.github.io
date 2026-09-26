@@ -13,7 +13,7 @@ description: Het Casteleijn College in Emmeloord is een school voor voortgezet s
       <p class="lead">Voortgezet speciaal onderwijs in Emmeloord. Een kleine klas, een vaste mentor en een dag die je van tevoren kent.</p>
       <div class="knoppen">
         <a class="knop knop--groen knop--groot" href="{{ '/aanmelden/#kennismaken' | relative_url }}">Plan een rondleiding <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-        <a class="knop knop--rand knop--licht knop--groot" href="{{ '/leerwegen/' | relative_url }}">Bekijk de leerwegen</a>
+        <a class="knop knop--rand knop--licht knop--groot" href="tel:{{ school.telefoon_link }}">Bel {{ school.telefoon }}</a>
       </div>
     </div>
     <div class="hero__collage" aria-hidden="true">
@@ -25,13 +25,11 @@ description: Het Casteleijn College in Emmeloord is een school voor voortgezet s
 </section>
 
 <nav class="wit" aria-label="Snel naar informatie voor">
-  <div class="wrap" style="padding-inline:0">
-    <div class="wegwijzer">
-      <a href="{{ '/leerwegen/' | relative_url }}"><small>Ik ben leerling</small><strong>Wat ga ik leren?</strong><span>Ontdek welke leerweg bij je past.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-      <a href="{{ '/ouders/' | relative_url }}"><small>Ik ben ouder</small><strong>Alles voor ouders</strong><span>Schooltijden, vakanties, mentor en documenten.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-      <a href="{{ '/aanmelden/' | relative_url }}"><small>Ik verwijs door</small><strong>Aanmelden &amp; TLV</strong><span>Voor wie de school is en hoe aanmelden werkt.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-      <a href="{{ school.werkenbij }}"><small>Ik wil hier werken</small><strong>Werken bij ons</strong><span>Vacatures bij het Casteleijn College en Eduvier.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-    </div>
+  <div class="wegwijzer">
+    <a href="{{ '/leerwegen/' | relative_url }}"><small>Ik ben leerling</small><strong>Wat ga ik leren?</strong><span>Ontdek welke leerweg bij je past.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    <a href="{{ '/aanmelden/' | relative_url }}"><small>Ik ben ouder</small><strong>Mijn kind aanmelden</strong><span>Rondleiding, TLV en aanmelden, stap voor stap.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    <a href="{{ '/ouders/' | relative_url }}"><small>Mijn kind zit hier al</small><strong>Alles voor ouders</strong><span>Schooltijden, vakanties, mentor en documenten.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+    <a href="{{ '/school/#voor-wie' | relative_url }}"><small>Ik verwijs een leerling</small><strong>Voor wie is de school?</strong><span>Doelgroep, aanpak en samenwerking.</span><svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
   </div>
 </nav>
 
@@ -46,7 +44,7 @@ description: Het Casteleijn College in Emmeloord is een school voor voortgezet s
     <ol class="manifest">
       <li><p class="manifest__woord">Rust<span>.</span></p><p><strong>Veilig en voorspelbaar.</strong>Vaste lestijden, een vaste mentor, een vaste plek in een kleine klas. Je weet altijd waar je aan toe bent.</p></li>
       <li><p class="manifest__woord">Ruimte<span>.</span></p><p><strong>Op jouw niveau en tempo.</strong>Extra tijd, extra uitleg, werken op je eigen tempo. We kijken naar wat wél kan en naar waar je goed in bent.</p></li>
-      <li><p class="manifest__woord">Richting<span>.</span></p><p><strong>Op weg naar je toekomst.</strong>Leren leren, sociale vaardigheden en stages. We bereiden je voor op een vervolgopleiding of een baan.</p></li>
+      <li><p class="manifest__woord">Richting<span>.</span></p><div><p><strong>Op weg naar je toekomst.</strong>Leren leren, sociale vaardigheden en stages. Stap voor stap ga je van klaslokaal naar werkvloer, en daarna naar een vervolgopleiding of een baan.</p><a class="pijl" href="{{ '/toekomst/' | relative_url }}">Zo werkt stage <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></div></li>
     </ol>
   </div>
 </section>
@@ -86,78 +84,38 @@ description: Het Casteleijn College in Emmeloord is een school voor voortgezet s
 
 <section class="sectie donker">
   <div class="wrap">
-    <div class="koprij">
-      <div>
-        <h2>Van klaslokaal naar werkvloer.</h2>
-        <p class="lead">Stap voor stap ontdek je wat je leuk vindt en waar je goed in bent. Binnen school, en daarna buiten school.</p>
-      </div>
-      <a class="knop knop--groen" href="{{ '/toekomst/' | relative_url }}">Zo werkt stage <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-    </div>
-    <ol class="route">
-      <li><span class="route__stip">1</span><div><h3>Oriënteren</h3><p>In een groepje van ongeveer 4 leerlingen voer je een opdracht uit buiten school. Bijvoorbeeld op een camping of in een supermarkt.</p></div></li>
-      <li><span class="route__stip">2</span><div><h3>Interne stage</h3><p>In de bovenbouw werk je binnen school en haal je schoolcertificaten, zoals fietstechniek of catering.</p></div></li>
-      <li><span class="route__stip">3</span><div><h3>Externe stage</h3><p>Vanaf 15 jaar loop je stage bij een echt bedrijf. De stagecoördinator komt regelmatig langs.</p></div></li>
-      <li><span class="route__stip">→</span><div><h3>Jouw toekomst</h3><p>Een vervolgopleiding op het mbo, de havo-bovenbouw of een baan.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="sectie">
-  <div class="wrap">
     <div class="split">
       <div>
         <h2>Kijk alvast even rond.</h2>
         <p class="lead">Hoe ziet de school eruit? Wie kom je tegen? In de introductiefilm zie je het zelf.</p>
         <a class="pijl" href="{{ '/verhalen/' | relative_url }}">Meer film, foto's en verhalen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
       </div>
-      {% include video.html id=school.video_intro poster="/assets/img/slider-keuken.jpg" titel="Bekijk de introductiefilm" %}
+      <div>{% include video.html id=school.video_intro poster="/assets/img/slider-keuken.jpg" titel="Bekijk de introductiefilm" %}</div>
     </div>
   </div>
 </section>
 
 <section class="sectie zand">
-  <div class="wrap">
-    <div class="koprij">
-      <div>
-        <h2>In drie stappen naar je eerste schooldag.</h2>
-      </div>
-      <a class="knop" href="{{ '/aanmelden/' | relative_url }}">Alles over aanmelden <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-    </div>
-    <ol class="stappen">
-      <li><h3>Vraag een TLV aan</h3><p>Voor het vso heb je een toelaatbaarheidsverklaring nodig van het samenwerkingsverband in je woonplaats.</p></li>
-      <li><h3>Kom kennismaken</h3><p>Plan een rondleiding van maximaal 30 minuten, of kom naar de informatieavond.</p></li>
-      <li><h3>Meld je aan</h3><p>Met een TLV meld je je aan. We kijken samen welke plek het beste bij je past.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="sectie">
   <div class="wrap split split--boven">
     <div>
-      <h2 class="d-3">Binnenkort</h2>
-      {% include agenda.html max=4 %}
+      <h2 class="d-3">Binnenkort op school.</h2>
+      {% include agenda.html max=3 %}
       <p class="meer"><a class="pijl" href="{{ '/ouders/#vakanties' | relative_url }}">Alle vakanties en vrije dagen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
+      {%- assign nieuws = site.posts | first %}
+      {%- if nieuws %}
+      <div class="nieuwsregel">
+        <h3>Laatste nieuws</h3>
+        <a href="{{ nieuws.url | relative_url }}"><strong>{{ nieuws.title }}</strong><time datetime="{{ nieuws.date | date: '%Y-%m-%d' }}">{% include datum.html d=nieuws.date %}</time></a>
+        <a class="pijl" href="{{ '/verhalen/#nieuws' | relative_url }}">Alle verhalen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
+      </div>
+      {%- endif %}
     </div>
     <div>
-      <h2 class="d-3">Goed om te weten</h2>
+      <h2 class="d-3">Goed om te weten.</h2>
       {% include vragen.html alleen_home=true %}
       <p class="meer"><a class="pijl" href="{{ '/vragen/' | relative_url }}">Alle vragen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a></p>
     </div>
   </div>
 </section>
 
-<section class="sectie zand" id="verhalen">
-  <div class="wrap">
-    <div class="koprij">
-      <div><h2>Wat er speelt.</h2></div>
-      <a class="pijl" href="{{ '/verhalen/' | relative_url }}">Alle verhalen <svg aria-hidden="true" class="i"><use href="#i-pijl"/></svg></a>
-    </div>
-    <div class="verhalen">
-      {%- for post in site.posts limit: 2 %}
-      {% if forloop.first %}{% include verhaal.html post=post groot=true %}{% else %}{% include verhaal.html post=post %}{% endif %}
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-{% include afsluiter.html %}
+{% include afsluiter.html stappen=true %}

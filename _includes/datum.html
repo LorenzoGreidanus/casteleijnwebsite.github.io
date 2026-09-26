@@ -1,1 +1,15 @@
-{%- assign d = include.d -%}{%- assign m = d | date: '%-m' | minus: 1 -%}{{ d | date: '%-d' }} {{ "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," | slice: m | first }}{% unless include.zonderjaar %} {{ d | date: '%Y' }}{% endunless %}
+{%- comment -%} Datum in het Nederlands. Parameters: d, zonderjaar, metdag {%- endcomment -%}
+{%- assign d = include.d -%}
+{%- assign m = d | date: '%-m' | minus: 1 -%}
+{%- assign maand = "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," | slice: m | first -%}
+{%- assign uit = d | date: '%-d' | append: ' ' | append: maand -%}
+{%- if include.metdag -%}
+  {%- assign w = d | date: '%u' | minus: 1 -%}
+  {%- assign dag = "maandag,dinsdag,woensdag,donderdag,vrijdag,zaterdag,zondag" | split: "," | slice: w | first -%}
+  {%- assign uit = dag | append: ' ' | append: uit -%}
+{%- endif -%}
+{%- unless include.zonderjaar -%}
+  {%- assign jaar = d | date: '%Y' -%}
+  {%- assign uit = uit | append: ' ' | append: jaar -%}
+{%- endunless -%}
+{{- uit -}}
